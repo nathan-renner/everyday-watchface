@@ -10,6 +10,7 @@ module Rez {
     } // Drawables
 
     module Fonts {
+        (:initialized) var pt72 as Symbol;
     } // Fonts
 
     module JsonData {
@@ -17,11 +18,7 @@ module Rez {
 
     module Layouts {
         function WatchFace(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
-            var rez_cmp_local_custom_drawable_11985040531222896681 = new Background();
-
-            var rez_cmp_local_text_TimeLabel = new WatchUi.Text({:identifier=>"TimeLabel", :color=>Graphics.COLOR_BLUE, :locX=>(390 * 0.5), :locY=>((390 - dc.getFontHeight(Graphics.FONT_LARGE)) * 0.5), :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_LARGE});
-
-            return [rez_cmp_local_custom_drawable_11985040531222896681, rez_cmp_local_text_TimeLabel] as Array<WatchUi.Drawable>;
+            return [] as Array<WatchUi.Drawable>;
         }
     } // Layouts
 
@@ -29,16 +26,27 @@ module Rez {
     } // Menus
 
     module Strings {
-        (:initialized) var ColorLightGray as Symbol;
-        (:initialized) var ColorBlue as Symbol;
-        (:initialized) var ColorRed as Symbol;
-        (:initialized) var ForegroundColorTitle as Symbol;
-        (:initialized) var BackgroundColorTitle as Symbol;
-        (:initialized) var ColorDarkGray as Symbol;
+        (:initialized) var WidgetBattery as Symbol;
+        (:initialized) var WidgetCalories as Symbol;
+        (:initialized) var WidgetWeather as Symbol;
+        (:initialized) var WidgetBodyBattery as Symbol;
         (:initialized) var MilitaryFormatTitle as Symbol;
-        (:initialized) var ColorBlack as Symbol;
-        (:initialized) var ColorWhite as Symbol;
+        (:initialized) var ThemeColorTitle as Symbol;
+        (:initialized) var WidgetDate as Symbol;
+        (:initialized) var WidgetNotifications as Symbol;
+        (:initialized) var ColorOrange as Symbol;
+        (:initialized) var ColorYellow as Symbol;
+        (:initialized) var WidgetFloorsClimbed as Symbol;
         (:initialized) var AppName as Symbol;
+        (:initialized) var WidgetStress as Symbol;
+        (:initialized) var WidgetHeartRate as Symbol;
+        (:initialized) var WidgetActiveMinutes as Symbol;
+        (:initialized) var WidgetSteps as Symbol;
+        (:initialized) var ColorPink as Symbol;
+        (:initialized) var ColorPurple as Symbol;
+        (:initialized) var ColorGreen as Symbol;
+        (:initialized) var WidgetBluetoothConnection as Symbol;
+        (:initialized) var ColorLightBlue as Symbol;
     } // Strings
 
     module Styles {
