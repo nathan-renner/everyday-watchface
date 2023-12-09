@@ -3,6 +3,7 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
+using Toybox.Time.Gregorian as Date;
 using Toybox.Application.Properties as Props;
 
 class EverydayView extends WatchUi.WatchFace {
@@ -16,6 +17,8 @@ class EverydayView extends WatchUi.WatchFace {
     };
     var colors = themes.get(0) as Array;
     var numOfFields = 6;
+    var showDate = true;
+    var isMilitaryTime = false;
     private var fontlg, fontsm, screenWidth, fieldRadius, fieldPenWidth;
 
     function initialize() {
@@ -23,6 +26,8 @@ class EverydayView extends WatchUi.WatchFace {
         
         colors = themes.get(Props.getValue("ThemeColor"));
         numOfFields = Props.getValue("NumOfFields");
+        showDate = Props.getValue("ShowDate");
+        isMilitaryTime = Props.getValue("UseMilitaryFormat");
     }
 
     // Load your resources here
@@ -49,53 +54,64 @@ class EverydayView extends WatchUi.WatchFace {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
 
+        // Refresh if settings are updated
         colors = themes.get(Props.getValue("ThemeColor"));
         numOfFields = Props.getValue("NumOfFields");
-
-        // Get the current time and format it correctly
-        // var timeFormat = "$1$$2$";
-        // var clockTime = System.getClockTime();
-        // var hours = clockTime.hour;
-        // if (!System.getDeviceSettings().is24Hour) {
-        //     if (hours > 12) {
-        //         hours = hours - 12;
-        //     }
-        // } else {
-        //     if (Props.getValue("UseMilitaryFormat")) {
-        //         timeFormat = "$1$$2$";
-        //         hours = hours.format("%02d");
-        //     }
-        // }
-        // var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
+        showDate = Props.getValue("ShowDate");
+        isMilitaryTime = Props.getValue("UseMilitaryFormat");
 
         drawClock(dc);
-        drawField(dc, true);
-        drawField(dc, false);
+        drawFields(dc);
     }
 
     private function drawClock (dc) {
+        var dateString = getDateString();
+        var time = getTime();
         var extra = 16;
         var timeY = 24;
+        var dateY = 36;
         if (numOfFields == 6) {
             timeY = 0;
+            dateY = 12;
         } else if (numOfFields == 2) {
             timeY += extra;
+            dateY += extra;
         }
 
-        if (numOfFields != 6) {
-            var dateY = 36;
-            if (numOfFields == 2) {
-                dateY += extra;
-            }
-
+        if (showDate == true) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(screenWidth / 2, dateY, fontsm, "THU 24", Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(screenWidth / 2, dateY, fontsm, dateString, Graphics.TEXT_JUSTIFY_CENTER);
         }
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(screenWidth / 2, timeY, fontlg, "09", Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(screenWidth / 2, timeY, fontlg, time[0], Graphics.TEXT_JUSTIFY_RIGHT);
         dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-        dc.drawText(screenWidth / 2, timeY, fontlg, "24", Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(screenWidth / 2, timeY, fontlg, time[1], Graphics.TEXT_JUSTIFY_LEFT);
+    }
+
+    private function getTime() {
+        var clockTime = System.getClockTime();
+        var hour = clockTime.hour;      
+        if (!isMilitaryTime) {
+            hour %= 12;
+            if (hour == 0) {
+                hour = 12;
+            }
+        }
+        hour = hour.format("%02d");
+
+        return [hour, clockTime.min.format("%02d")];
+    }
+
+    private function getDateString() {
+        var today = Date.info(Time.now(), Time.FORMAT_MEDIUM);
+
+        return Lang.format("$1$ $2$", [today.day_of_week.substring(0, 3).toUpper(), today.day]);
+    }
+
+    private function drawFields(dc) {
+        drawField(dc, true);
+        drawField(dc, false);
     }
 
     private function drawField (dc, isSolid) {

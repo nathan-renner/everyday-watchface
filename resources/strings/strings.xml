@@ -4,6 +4,7 @@
 
     <string id="ThemeColorTitle">Theme Color</string>
     <string id="MilitaryFormatTitle">24 Hour Time</string>
+    <string id="ShowDateTitle">Show Date</string>
     <string id="NumOfFieldsTitle">Number of Data Fields</string>
 
     <string id="ColorPink">Pink</string>

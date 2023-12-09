@@ -21,6 +21,10 @@
         </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.ShowDate" title="@Strings.ShowDateTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
     <setting propertyKey="@Properties.UseMilitaryFormat" title="@Strings.MilitaryFormatTitle">
         <settingConfig type="boolean" />
     </setting>
