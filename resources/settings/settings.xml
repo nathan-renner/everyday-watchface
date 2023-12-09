@@ -11,6 +11,16 @@
         </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.NumOfFields" title="@Strings.NumOfFieldsTitle">
+        <settingConfig type="list">
+            <listEntry value="2">@Strings.Num2</listEntry>
+            <listEntry value="3">@Strings.Num3</listEntry>
+            <listEntry value="4">@Strings.Num4</listEntry>
+            <listEntry value="5">@Strings.Num5</listEntry>
+            <listEntry value="6">@Strings.Num6</listEntry>
+        </settingConfig>
+    </setting>
+
     <setting propertyKey="@Properties.UseMilitaryFormat" title="@Strings.MilitaryFormatTitle">
         <settingConfig type="boolean" />
     </setting>

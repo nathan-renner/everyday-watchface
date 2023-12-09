@@ -15,23 +15,27 @@ class EverydayView extends WatchUi.WatchFace {
         5 => [0xC72EFD, 0x280933],
     };
     var colors = themes.get(0) as Array;
-    private var font, fieldWidth, fieldPenWidth;
+    var numOfFields = 6;
+    private var fontlg, fontsm, screenWidth, fieldRadius, fieldPenWidth;
 
     function initialize() {
         WatchFace.initialize();
         
         colors = themes.get(Props.getValue("ThemeColor"));
+        numOfFields = Props.getValue("NumOfFields");
     }
 
     // Load your resources here
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.WatchFace(dc));
 
-        fieldWidth = dc.getWidth() * 0.225;
-        fieldPenWidth = fieldWidth * 0.167 / 2;
+        screenWidth = dc.getWidth();
+        fieldRadius = screenWidth * 0.225 / 2;
+        fieldPenWidth = fieldRadius * 0.167;
 
         var fonts = Rez.Fonts;
-        font = WatchUi.loadResource(fonts.pt72);
+        fontlg = WatchUi.loadResource(numOfFields == 2 ? fonts.xl : fonts.lg);
+        fontsm = WatchUi.loadResource(fonts.sm);
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -46,6 +50,7 @@ class EverydayView extends WatchUi.WatchFace {
         View.onUpdate(dc);
 
         colors = themes.get(Props.getValue("ThemeColor"));
+        numOfFields = Props.getValue("NumOfFields");
 
         // Get the current time and format it correctly
         // var timeFormat = "$1$$2$";
@@ -63,23 +68,47 @@ class EverydayView extends WatchUi.WatchFace {
         // }
         // var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
 
-        dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-        // dc.drawText(100, 100, font, "MON MON MON", Graphics.TEXT_JUSTIFY_CENTER);
+        drawClock(dc);
         drawField(dc, true);
         drawField(dc, false);
+    }
+
+    private function drawClock (dc) {
+        var extra = 16;
+        var timeY = 24;
+        if (numOfFields == 6) {
+            timeY = 0;
+        } else if (numOfFields == 2) {
+            timeY += extra;
+        }
+
+        if (numOfFields != 6) {
+            var dateY = 36;
+            if (numOfFields == 2) {
+                dateY += extra;
+            }
+
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(screenWidth / 2, dateY, fontsm, "THU 24", Graphics.TEXT_JUSTIFY_CENTER);
+        }
+
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(screenWidth / 2, timeY, fontlg, "09", Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+        dc.drawText(screenWidth / 2, timeY, fontlg, "24", Graphics.TEXT_JUSTIFY_LEFT);
     }
 
     private function drawField (dc, isSolid) {
         if (isSolid) {
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
-            dc.fillCircle(200, 100, fieldWidth / 2);
+            dc.fillCircle(200, 250, fieldRadius);
         } else {
             dc.setPenWidth(fieldPenWidth);
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
-            dc.drawArc(100, 100, fieldWidth / 2 - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
+            dc.drawArc(100, 250, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
 
             dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-            dc.drawArc(100, 100, fieldWidth / 2 - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 180);
+            dc.drawArc(100, 250, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 180);
         }
     }
 

@@ -10,7 +10,9 @@ module Rez {
     } // Drawables
 
     module Fonts {
-        (:initialized) var pt72 as Symbol;
+        (:initialized) var sm as Symbol;
+        (:initialized) var lg as Symbol;
+        (:initialized) var xl as Symbol;
     } // Fonts
 
     module JsonData {
@@ -26,26 +28,32 @@ module Rez {
     } // Menus
 
     module Strings {
+        (:initialized) var NumOfFieldsTitle as Symbol;
         (:initialized) var WidgetBattery as Symbol;
         (:initialized) var WidgetCalories as Symbol;
         (:initialized) var WidgetWeather as Symbol;
-        (:initialized) var WidgetBodyBattery as Symbol;
-        (:initialized) var MilitaryFormatTitle as Symbol;
         (:initialized) var ThemeColorTitle as Symbol;
         (:initialized) var WidgetDate as Symbol;
-        (:initialized) var WidgetNotifications as Symbol;
-        (:initialized) var ColorOrange as Symbol;
         (:initialized) var ColorYellow as Symbol;
-        (:initialized) var WidgetFloorsClimbed as Symbol;
         (:initialized) var AppName as Symbol;
-        (:initialized) var WidgetStress as Symbol;
         (:initialized) var WidgetHeartRate as Symbol;
         (:initialized) var WidgetActiveMinutes as Symbol;
         (:initialized) var WidgetSteps as Symbol;
         (:initialized) var ColorPink as Symbol;
-        (:initialized) var ColorPurple as Symbol;
         (:initialized) var ColorGreen as Symbol;
         (:initialized) var WidgetBluetoothConnection as Symbol;
+        (:initialized) var WidgetBodyBattery as Symbol;
+        (:initialized) var MilitaryFormatTitle as Symbol;
+        (:initialized) var Num3 as Symbol;
+        (:initialized) var Num2 as Symbol;
+        (:initialized) var Num5 as Symbol;
+        (:initialized) var WidgetNotifications as Symbol;
+        (:initialized) var Num4 as Symbol;
+        (:initialized) var ColorOrange as Symbol;
+        (:initialized) var WidgetFloorsClimbed as Symbol;
+        (:initialized) var WidgetStress as Symbol;
+        (:initialized) var Num6 as Symbol;
+        (:initialized) var ColorPurple as Symbol;
         (:initialized) var ColorLightBlue as Symbol;
     } // Strings
 

@@ -4,6 +4,7 @@
 
     <string id="ThemeColorTitle">Theme Color</string>
     <string id="MilitaryFormatTitle">24 Hour Time</string>
+    <string id="NumOfFieldsTitle">Number of Data Fields</string>
 
     <string id="ColorPink">Pink</string>
     <string id="ColorOrange">Orange</string>
@@ -11,7 +12,13 @@
     <string id="ColorGreen">Green</string>
     <string id="ColorLightBlue">Light Blue</string>
     <string id="ColorPurple">Purple</string>
-    
+
+    <string id="Num2">2</string>
+    <string id="Num3">3</string>
+    <string id="Num4">4</string>
+    <string id="Num5">5</string>
+    <string id="Num6">6</string>
+
     <string id="WidgetActiveMinutes">Active Minutes</string>
     <string id="WidgetBattery">Battery</string>
     <string id="WidgetBluetoothConnection">Bluetooth Connection</string>
