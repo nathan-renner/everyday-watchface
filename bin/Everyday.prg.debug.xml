@@ -8,109 +8,118 @@
         <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="27" parent="globals/EverydayView" pc="268435763" symbol="onLayout"/>
         <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="28" parent="globals/EverydayView" pc="268435767" symbol="onLayout"/>
         <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="30" parent="globals/EverydayView" pc="268435808" symbol="onLayout"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="32" parent="globals/EverydayView" pc="268435833" symbol="onLayout"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="33" parent="globals/EverydayView" pc="268435853" symbol="onLayout"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="6" lineNum="20" parent="globals/EverydayView" pc="268435885" symbol="initialize"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="6" lineNum="21" parent="globals/EverydayView" pc="268435887" symbol="initialize"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="6" lineNum="23" parent="globals/EverydayView" pc="268435905" symbol="initialize"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="8" lineNum="70" parent="globals/EverydayView" pc="268435951" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="8" lineNum="71" parent="globals/EverydayView" pc="268435953" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="8" lineNum="72" parent="globals/EverydayView" pc="268435984" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="43" parent="globals/EverydayView" pc="268436021" symbol="onUpdate"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="45" parent="globals/EverydayView" pc="268436023" symbol="onUpdate"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="47" parent="globals/EverydayView" pc="268436047" symbol="onUpdate"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="65" parent="globals/EverydayView" pc="268436092" symbol="onUpdate"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="66" parent="globals/EverydayView" pc="268436123" symbol="onUpdate"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="67" parent="globals/EverydayView" pc="268436163" symbol="onUpdate"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="10" lineNum="31" parent="globals" pc="268436178" symbol="getApp"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="10" lineNum="32" parent="globals" pc="268436188" symbol="getApp"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/bin/gen/006-B4426-00/source/Rez.mcgen" id="11" lineNum="7" parent="globals/Rez" pc="268436204" symbol="&lt;init&gt;"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="12" lineNum="5" parent="globals/EverydayApp" pc="268436228" symbol="&lt;init&gt;"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="13" lineNum="12" parent="globals/EverydayApp" pc="268436247" symbol="onStart"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="14" lineNum="25" parent="globals/EverydayApp" pc="268436250" symbol="onSettingsChanged"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="14" lineNum="26" parent="globals/EverydayApp" pc="268436252" symbol="onSettingsChanged"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="15" lineNum="20" parent="globals/EverydayApp" pc="268436269" symbol="getInitialView"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="15" lineNum="21" parent="globals/EverydayApp" pc="268436271" symbol="getInitialView"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="16" lineNum="7" parent="globals/EverydayApp" pc="268436312" symbol="initialize"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="16" lineNum="8" parent="globals/EverydayApp" pc="268436314" symbol="initialize"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="17" lineNum="16" parent="globals/EverydayApp" pc="268436333" symbol="onStop"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/bin/gen/006-B4426-00/source/Rez.mcgen" id="18" lineNum="20" parent="globals/Rez/Layouts" pc="268436336" symbol="WatchFace"/>
-        <entry filename="/Users/naterenner/Code/watch faces/Everyday/bin/gen/006-B4426-00/source/Rez.mcgen" id="18" lineNum="21" parent="globals/Rez/Layouts" pc="268436346" symbol="WatchFace"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="31" parent="globals/EverydayView" pc="268435833" symbol="onLayout"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="33" parent="globals/EverydayView" pc="268435861" symbol="onLayout"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="4" lineNum="34" parent="globals/EverydayView" pc="268435881" symbol="onLayout"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="72" parent="globals/EverydayView" pc="268435913" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="73" parent="globals/EverydayView" pc="268435915" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="74" parent="globals/EverydayView" pc="268435920" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="75" parent="globals/EverydayView" pc="268435951" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="77" parent="globals/EverydayView" pc="268435990" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="78" parent="globals/EverydayView" pc="268436010" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="79" parent="globals/EverydayView" pc="268436041" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="81" parent="globals/EverydayView" pc="268436107" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="5" lineNum="82" parent="globals/EverydayView" pc="268436138" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="7" lineNum="20" parent="globals/EverydayView" pc="268436205" symbol="initialize"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="7" lineNum="21" parent="globals/EverydayView" pc="268436207" symbol="initialize"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="7" lineNum="23" parent="globals/EverydayView" pc="268436225" symbol="initialize"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="44" parent="globals/EverydayView" pc="268436271" symbol="onUpdate"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="46" parent="globals/EverydayView" pc="268436273" symbol="onUpdate"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="48" parent="globals/EverydayView" pc="268436297" symbol="onUpdate"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="66" parent="globals/EverydayView" pc="268436342" symbol="onUpdate"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="68" parent="globals/EverydayView" pc="268436373" symbol="onUpdate"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayView.mc" id="9" lineNum="69" parent="globals/EverydayView" pc="268436389" symbol="onUpdate"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="10" lineNum="31" parent="globals" pc="268436406" symbol="getApp"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="10" lineNum="32" parent="globals" pc="268436416" symbol="getApp"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/bin/gen/006-B4426-00/source/Rez.mcgen" id="11" lineNum="7" parent="globals/Rez" pc="268436432" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="12" lineNum="5" parent="globals/EverydayApp" pc="268436456" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="13" lineNum="12" parent="globals/EverydayApp" pc="268436475" symbol="onStart"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="14" lineNum="25" parent="globals/EverydayApp" pc="268436478" symbol="onSettingsChanged"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="14" lineNum="26" parent="globals/EverydayApp" pc="268436480" symbol="onSettingsChanged"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="15" lineNum="20" parent="globals/EverydayApp" pc="268436497" symbol="getInitialView"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="15" lineNum="21" parent="globals/EverydayApp" pc="268436499" symbol="getInitialView"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="16" lineNum="7" parent="globals/EverydayApp" pc="268436540" symbol="initialize"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="16" lineNum="8" parent="globals/EverydayApp" pc="268436542" symbol="initialize"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/source/EverydayApp.mc" id="17" lineNum="16" parent="globals/EverydayApp" pc="268436561" symbol="onStop"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/bin/gen/006-B4426-00/source/Rez.mcgen" id="18" lineNum="20" parent="globals/Rez/Layouts" pc="268436564" symbol="WatchFace"/>
+        <entry filename="/Users/naterenner/Code/watch faces/Everyday/bin/gen/006-B4426-00/source/Rez.mcgen" id="18" lineNum="21" parent="globals/Rez/Layouts" pc="268436574" symbol="WatchFace"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388639" module="true" symbol="Graphics"/>
-        <entry field="true" id="13" symbol="&lt;globals/EverydayView/&lt;&gt;fieldWidth&gt;"/>
-        <entry field="true" id="30" symbol="WidgetBattery"/>
-        <entry field="true" id="37" symbol="WidgetNotifications"/>
+        <entry field="true" id="14" symbol="&lt;globals/EverydayView/&lt;&gt;fieldWidth&gt;"/>
+        <entry field="true" id="31" symbol="WidgetBattery"/>
+        <entry field="true" id="38" symbol="WidgetNotifications"/>
         <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
-        <entry field="true" id="25" symbol="ColorPurple"/>
+        <entry field="true" id="26" symbol="ColorPurple"/>
         <entry id="7" module="true" symbol="globals/Rez/Menus"/>
-        <entry field="true" id="21" symbol="ColorGreen"/>
+        <entry field="true" id="22" symbol="ColorGreen"/>
         <entry id="8389683" method="true" symbol="onSettingsChanged"/>
-        <entry field="true" id="26" symbol="ColorYellow"/>
-        <entry field="true" id="35" symbol="WidgetFloorsClimbed"/>
-        <entry field="true" id="27" symbol="MilitaryFormatTitle"/>
+        <entry field="true" id="27" symbol="ColorYellow"/>
+        <entry field="true" id="36" symbol="WidgetFloorsClimbed"/>
+        <entry field="true" id="28" symbol="MilitaryFormatTitle"/>
         <entry field="true" id="8388611" module="true" symbol="Toybox"/>
-        <entry field="true" id="20" symbol="AppName"/>
+        <entry field="true" id="13" symbol="&lt;globals/EverydayView/&lt;&gt;fieldPenWidth&gt;"/>
+        <entry field="true" id="21" symbol="AppName"/>
         <entry id="8" module="true" symbol="globals/Rez/Strings"/>
         <entry id="8388772" module="true" object="true" symbol="Fonts"/>
         <entry id="8388648" module="true" symbol="WatchUi"/>
-        <entry field="true" id="23" symbol="ColorOrange"/>
-        <entry field="true" id="34" symbol="WidgetDate"/>
+        <entry field="true" id="24" symbol="ColorOrange"/>
+        <entry field="true" id="35" symbol="WidgetDate"/>
         <entry id="2" module="true" symbol="globals/Rez"/>
         <entry id="8389124" method="true" symbol="onUpdate"/>
         <entry id="8389375" method="true" object="true" symbol="WatchFace"/>
         <entry id="8388771" module="true" object="true" symbol="Drawables"/>
-        <entry field="true" id="19" symbol="pt72"/>
-        <entry id="17" module="true" symbol="Menus"/>
+        <entry field="true" id="20" symbol="pt72"/>
+        <entry id="18" module="true" symbol="Menus"/>
         <entry id="8389275" method="true" symbol="getApp"/>
-        <entry field="true" id="40" symbol="WidgetWeather"/>
+        <entry field="true" id="41" symbol="WidgetWeather"/>
         <entry id="6" module="true" symbol="globals/Rez/Layouts"/>
         <entry field="true" id="11" symbol="colors"/>
         <entry id="8389122" method="true" symbol="onLayout"/>
         <entry id="8389376" method="true" symbol="onEnterSleep"/>
-        <entry field="true" id="15" symbol="themes"/>
-        <entry field="true" id="33" symbol="WidgetCalories"/>
+        <entry field="true" id="16" symbol="themes"/>
+        <entry field="true" id="34" symbol="WidgetCalories"/>
         <entry id="12" method="true" symbol="&lt;globals/EverydayView/&lt;&gt;drawField&gt;"/>
-        <entry field="true" id="36" symbol="WidgetHeartRate"/>
+        <entry field="true" id="37" symbol="WidgetHeartRate"/>
         <entry id="5" module="true" symbol="globals/Rez/JsonData"/>
         <entry id="10" object="true" symbol="EverydayView"/>
         <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
-        <entry field="true" id="39" symbol="WidgetStress"/>
+        <entry field="true" id="40" symbol="WidgetStress"/>
         <entry id="8389377" method="true" symbol="onExitSleep"/>
         <entry id="8388644" module="true" symbol="System"/>
         <entry id="8388769" module="true" object="true" symbol="Rez"/>
-        <entry field="true" id="29" symbol="WidgetActiveMinutes"/>
+        <entry field="true" id="30" symbol="WidgetActiveMinutes"/>
         <entry id="8388640" module="true" symbol="Lang"/>
         <entry id="8390088" module="true" object="true" symbol="JsonData"/>
-        <entry field="true" id="18" symbol="LauncherIcon"/>
+        <entry field="true" id="19" symbol="LauncherIcon"/>
         <entry id="8388610" symbol="statics"/>
         <entry id="8389123" method="true" symbol="onShow"/>
-        <entry field="true" id="32" symbol="WidgetBodyBattery"/>
-        <entry field="true" id="14" symbol="&lt;globals/EverydayView/&lt;&gt;font&gt;"/>
+        <entry field="true" id="33" symbol="WidgetBodyBattery"/>
+        <entry field="true" id="15" symbol="&lt;globals/EverydayView/&lt;&gt;font&gt;"/>
         <entry id="8389350" module="true" symbol="globals"/>
         <entry id="8388770" module="true" object="true" symbol="Strings"/>
-        <entry field="true" id="38" symbol="WidgetSteps"/>
-        <entry field="true" id="28" symbol="ThemeColorTitle"/>
+        <entry field="true" id="39" symbol="WidgetSteps"/>
+        <entry field="true" id="29" symbol="ThemeColorTitle"/>
         <entry id="8388702" method="true" symbol="initialize"/>
         <entry id="8389279" method="true" symbol="onStart"/>
         <entry id="9" object="true" symbol="EverydayApp"/>
         <entry id="8389280" method="true" symbol="getInitialView"/>
         <entry id="8389281" method="true" symbol="onStop"/>
-        <entry field="true" id="24" symbol="ColorPink"/>
-        <entry field="true" id="31" symbol="WidgetBluetoothConnection"/>
-        <entry id="16" module="true" symbol="Layouts"/>
-        <entry field="true" id="22" symbol="ColorLightBlue"/>
+        <entry field="true" id="25" symbol="ColorPink"/>
+        <entry field="true" id="32" symbol="WidgetBluetoothConnection"/>
+        <entry id="17" module="true" symbol="Layouts"/>
+        <entry field="true" id="23" symbol="ColorLightBlue"/>
         <entry id="4" module="true" symbol="globals/Rez/Fonts"/>
         <entry id="8389125" method="true" symbol="onHide"/>
         <entry id="8388635" module="true" symbol="Application"/>
     </symbolTable>
     <localVars>
-        <entry arg="true" endPc="268435884" name="dc" stackId="1" startPc="268435763"/>
-        <entry endPc="268435883" name="fonts" stackId="2" startPc="268435767"/>
-        <entry arg="true" endPc="268436020" name="dc" stackId="1" startPc="268435951"/>
-        <entry arg="true" endPc="268436177" name="dc" stackId="1" startPc="268436021"/>
-        <entry arg="true" endPc="268436352" name="dc" stackId="1" startPc="268436336"/>
+        <entry arg="true" endPc="268435912" name="dc" stackId="1" startPc="268435763"/>
+        <entry endPc="268435911" name="fonts" stackId="2" startPc="268435767"/>
+        <entry arg="true" endPc="268436204" name="dc" stackId="1" startPc="268435913"/>
+        <entry arg="true" endPc="268436204" name="isSolid" stackId="2" startPc="268435913"/>
+        <entry arg="true" endPc="268436405" name="dc" stackId="1" startPc="268436271"/>
+        <entry arg="true" endPc="268436580" name="dc" stackId="1" startPc="268436564"/>
     </localVars>
     <annotations>
         <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="MilitaryFormatTitle"/>
@@ -140,14 +149,14 @@
     <dataEntryOffsetMappings>
         <dataEntry label="globals" offset="87" parentId="" symbolId="globals" type="module"/>
         <dataEntry label="globals/EverydayView" offset="158" parentId="globals" symbolId="EverydayView" type="class"/>
-        <dataEntry label="globals/Rez" offset="293" parentId="globals" symbolId="Rez" type="module"/>
-        <dataEntry label="globals/EverydayApp" offset="372" parentId="globals" symbolId="EverydayApp" type="class"/>
-        <dataEntry label="globals/Rez/Drawables" offset="451" parentId="Rez" symbolId="Drawables" type="module"/>
-        <dataEntry label="globals/Rez/Layouts" offset="490" parentId="Rez" symbolId="Layouts" type="module"/>
-        <dataEntry label="globals/Rez/Menus" offset="529" parentId="Rez" symbolId="Menus" type="module"/>
-        <dataEntry label="globals/Rez/Fonts" offset="560" parentId="Rez" symbolId="Fonts" type="module"/>
-        <dataEntry label="globals/Rez/Strings" offset="599" parentId="Rez" symbolId="Strings" type="module"/>
-        <dataEntry label="globals/Rez/JsonData" offset="798" parentId="Rez" symbolId="JsonData" type="module"/>
+        <dataEntry label="globals/Rez" offset="301" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/EverydayApp" offset="380" parentId="globals" symbolId="EverydayApp" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="459" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="498" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Menus" offset="537" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry label="globals/Rez/Fonts" offset="568" parentId="Rez" symbolId="Fonts" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="607" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/Rez/JsonData" offset="806" parentId="Rez" symbolId="JsonData" type="module"/>
     </dataEntryOffsetMappings>
     <functions>
         <functionEntry accessMode="public" endPc="268435762" name="&lt;init&gt;" parent="EverydayView" startPc="268435460">
@@ -159,50 +168,51 @@
         <functionEntry accessMode="public" name="onShow" parent="EverydayView">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435884" name="onLayout" parent="EverydayView" startPc="268435763">
+        <functionEntry accessMode="public" endPc="268435912" name="onLayout" parent="EverydayView" startPc="268435763">
             <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="private" endPc="268436204" name="&lt;globals/EverydayView/&lt;&gt;drawField&gt;" parent="EverydayView" startPc="268435913">
+            <param id="dc"/>
+            <param id="isSolid"/>
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="onEnterSleep" parent="EverydayView">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435950" name="initialize" parent="EverydayView" startPc="268435885">
+        <functionEntry accessMode="public" endPc="268436270" name="initialize" parent="EverydayView" startPc="268436205">
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="onHide" parent="EverydayView">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268436020" name="&lt;globals/EverydayView/&lt;&gt;drawField&gt;" parent="EverydayView" startPc="268435951">
+        <functionEntry accessMode="public" endPc="268436405" name="onUpdate" parent="EverydayView" startPc="268436271">
             <param id="dc"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436177" name="onUpdate" parent="EverydayView" startPc="268436021">
-            <param id="dc"/>
+        <functionEntry accessMode="public" endPc="268436431" name="getApp" startPc="268436406">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436203" name="getApp" startPc="268436178">
+        <functionEntry accessMode="public" endPc="268436455" name="&lt;init&gt;" parent="Rez" startPc="268436432">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436227" name="&lt;init&gt;" parent="Rez" startPc="268436204">
+        <functionEntry accessMode="public" endPc="268436474" name="&lt;init&gt;" parent="EverydayApp" startPc="268436456">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436246" name="&lt;init&gt;" parent="EverydayApp" startPc="268436228">
-            <documentation/>
-        </functionEntry>
-        <functionEntry accessMode="public" endPc="268436249" name="onStart" parent="EverydayApp" startPc="268436247">
+        <functionEntry accessMode="public" endPc="268436477" name="onStart" parent="EverydayApp" startPc="268436475">
             <param id="state"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436268" name="onSettingsChanged" parent="EverydayApp" startPc="268436250">
+        <functionEntry accessMode="public" endPc="268436496" name="onSettingsChanged" parent="EverydayApp" startPc="268436478">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436311" name="getInitialView" parent="EverydayApp" startPc="268436269">
+        <functionEntry accessMode="public" endPc="268436539" name="getInitialView" parent="EverydayApp" startPc="268436497">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436332" name="initialize" parent="EverydayApp" startPc="268436312">
+        <functionEntry accessMode="public" endPc="268436560" name="initialize" parent="EverydayApp" startPc="268436540">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436335" name="onStop" parent="EverydayApp" startPc="268436333">
+        <functionEntry accessMode="public" endPc="268436563" name="onStop" parent="EverydayApp" startPc="268436561">
             <param id="state"/>
             <documentation/>
         </functionEntry>
@@ -224,7 +234,7 @@
         <functionEntry accessMode="public" name="&lt;init&gt;" parent="JsonData">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268436352" name="WatchFace" parent="Layouts" startPc="268436336">
+        <functionEntry accessMode="public" endPc="268436580" name="WatchFace" parent="Layouts" startPc="268436564">
             <param id="dc"/>
             <documentation/>
         </functionEntry>

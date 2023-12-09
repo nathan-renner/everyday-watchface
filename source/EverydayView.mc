@@ -15,7 +15,7 @@ class EverydayView extends WatchUi.WatchFace {
         5 => [0xC72EFD, 0x280933],
     };
     var colors = themes.get(0) as Array;
-    private var font, fieldWidth;
+    private var font, fieldWidth, fieldPenWidth;
 
     function initialize() {
         WatchFace.initialize();
@@ -28,6 +28,7 @@ class EverydayView extends WatchUi.WatchFace {
         setLayout(Rez.Layouts.WatchFace(dc));
 
         fieldWidth = dc.getWidth() * 0.225;
+        fieldPenWidth = fieldWidth * 0.167 / 2;
 
         var fonts = Rez.Fonts;
         font = WatchUi.loadResource(fonts.pt72);
@@ -63,16 +64,24 @@ class EverydayView extends WatchUi.WatchFace {
         // var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
 
         dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-        dc.drawText(100, 100, font, "MON MON MON", Graphics.TEXT_JUSTIFY_CENTER);
-        // drawField(dc);
+        // dc.drawText(100, 100, font, "MON MON MON", Graphics.TEXT_JUSTIFY_CENTER);
+        drawField(dc, true);
+        drawField(dc, false);
     }
 
-    // private function drawField (dc) {
-    //     dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
-    //     dc.fillCircle(100, 100, fieldWidth / 2);
+    private function drawField (dc, isSolid) {
+        if (isSolid) {
+            dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
+            dc.fillCircle(200, 100, fieldWidth / 2);
+        } else {
+            dc.setPenWidth(fieldPenWidth);
+            dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
+            dc.drawArc(100, 100, fieldWidth / 2 - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
 
-
-    // }
+            dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+            dc.drawArc(100, 100, fieldWidth / 2 - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 180);
+        }
+    }
 
     // Called when this View is removed from the screen. Save the
     // state of this View here. This includes freeing resources from
