@@ -7,6 +7,13 @@ using Toybox.Time.Gregorian as Date;
 using Toybox.Application.Properties as Props;
 
 class EverydayView extends WatchUi.WatchFace {
+    var layouts = {
+        2 => [2],
+        3 => [3],
+        4 => [2, 2],
+        5 => [3, 2],
+        6 => [3, 3],
+    };
     var themes = {
         0 => [0xFF6FA6, 0x331621],
         1 => [0xFD6C2E, 0x331609],
@@ -68,12 +75,12 @@ class EverydayView extends WatchUi.WatchFace {
         var dateString = getDateString();
         var time = getTime();
         var extra = 16;
-        var timeY = 24;
-        var dateY = 36;
+        var timeY = 12;
+        var dateY = 24;
         if (numOfFields == 6) {
             timeY = 0;
             dateY = 12;
-        } else if (numOfFields == 2) {
+        } else if (numOfFields <= 3) {
             timeY += extra;
             dateY += extra;
         }
@@ -110,21 +117,50 @@ class EverydayView extends WatchUi.WatchFace {
     }
 
     private function drawFields(dc) {
-        drawField(dc, true);
-        drawField(dc, false);
+        var layout = layouts[numOfFields];
+        var gap = 15;
+        var topRowY = 208;
+
+        if (numOfFields == 6) {
+            topRowY -= 18;
+        } else if (numOfFields <= 3) {
+            topRowY += 30;
+        }
+        var bottomRowY = topRowY + fieldRadius * 2 + gap;
+        var middle = screenWidth / 2;
+        var fieldAndGap = fieldRadius + gap;
+
+        for (var i = 0; i < layout.size(); i++) {
+            var rowY = i == 0 ? topRowY : bottomRowY;
+            var rowX = middle;
+            if (layout[i] == 3) {
+                rowX = middle - fieldRadius * 2 - gap;
+            } else if (layout[i] == 2) {
+                rowX = middle - fieldRadius - gap / 2;
+            }
+            for (var j = 1; j <= layout[i]; j++) {
+                var fieldX = rowX;
+                if (j == 2) {
+                    fieldX = rowX + (fieldRadius + gap / 2) * j;
+                } else if (j == 3) {
+                    fieldX = rowX + (fieldRadius * 2 + gap) * 2;
+                }
+                drawField(dc, fieldX, rowY, j % 2 == 1);
+            }
+        }
     }
 
-    private function drawField (dc, isSolid) {
+    private function drawField (dc, x, y, isSolid) {
         if (isSolid) {
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
-            dc.fillCircle(200, 250, fieldRadius);
+            dc.fillCircle(x, y, fieldRadius);
         } else {
             dc.setPenWidth(fieldPenWidth);
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
-            dc.drawArc(100, 250, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
+            dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
 
             dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-            dc.drawArc(100, 250, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 180);
+            dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 180);
         }
     }
 
