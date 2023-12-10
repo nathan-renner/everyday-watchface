@@ -19,12 +19,19 @@
     <string id="Num4">4</string>
     <string id="Num5">5</string>
     <string id="Num6">6</string>
+    
+    <string id="DataField1Title">Data Field 1</string>
+    <string id="DataField2Title">Data Field 2</string>
+    <string id="DataField3Title">Data Field 3</string>
+    <string id="DataField4Title">Data Field 4</string>
+    <string id="DataField5Title">Data Field 5</string>
+    <string id="DataField6Title">Data Field 6</string>
 
     <string id="WidgetActiveMinutes">Active Minutes</string>
     <string id="WidgetBattery">Battery</string>
     <string id="WidgetBluetoothConnection">Bluetooth Connection</string>
     <string id="WidgetBodyBattery">Body Battery</string>
-    <string id="WidgetCalories">Calories</string>
+    <string id="WidgetCalories">Calories Burned</string>
     <string id="WidgetDate">Date</string>
     <string id="WidgetFloorsClimbed">Floors Climbed</string>
     <string id="WidgetHeartRate">Heart Rate</string>

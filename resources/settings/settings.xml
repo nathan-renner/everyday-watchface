@@ -29,4 +29,106 @@
         <settingConfig type="boolean" />
     </setting>
 
+    <setting propertyKey="@Properties.DataField1" title="@Strings.DataField1Title">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.WidgetActiveMinutes</listEntry>
+            <listEntry value="1">@Strings.WidgetBattery</listEntry>
+            <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
+            <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
+            <listEntry value="4">@Strings.WidgetCalories</listEntry>
+            <listEntry value="5">@Strings.WidgetDate</listEntry>
+            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="9">@Strings.WidgetSteps</listEntry>
+            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="11">@Strings.WidgetWeather</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.DataField2" title="@Strings.DataField2Title">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.WidgetActiveMinutes</listEntry>
+            <listEntry value="1">@Strings.WidgetBattery</listEntry>
+            <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
+            <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
+            <listEntry value="4">@Strings.WidgetCalories</listEntry>
+            <listEntry value="5">@Strings.WidgetDate</listEntry>
+            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="9">@Strings.WidgetSteps</listEntry>
+            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="11">@Strings.WidgetWeather</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.DataField3" title="@Strings.DataField3Title">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.WidgetActiveMinutes</listEntry>
+            <listEntry value="1">@Strings.WidgetBattery</listEntry>
+            <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
+            <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
+            <listEntry value="4">@Strings.WidgetCalories</listEntry>
+            <listEntry value="5">@Strings.WidgetDate</listEntry>
+            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="9">@Strings.WidgetSteps</listEntry>
+            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="11">@Strings.WidgetWeather</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.DataField4" title="@Strings.DataField4Title">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.WidgetActiveMinutes</listEntry>
+            <listEntry value="1">@Strings.WidgetBattery</listEntry>
+            <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
+            <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
+            <listEntry value="4">@Strings.WidgetCalories</listEntry>
+            <listEntry value="5">@Strings.WidgetDate</listEntry>
+            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="9">@Strings.WidgetSteps</listEntry>
+            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="11">@Strings.WidgetWeather</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.DataField5" title="@Strings.DataField5Title">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.WidgetActiveMinutes</listEntry>
+            <listEntry value="1">@Strings.WidgetBattery</listEntry>
+            <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
+            <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
+            <listEntry value="4">@Strings.WidgetCalories</listEntry>
+            <listEntry value="5">@Strings.WidgetDate</listEntry>
+            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="9">@Strings.WidgetSteps</listEntry>
+            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="11">@Strings.WidgetWeather</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.DataField6" title="@Strings.DataField6Title">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.WidgetActiveMinutes</listEntry>
+            <listEntry value="1">@Strings.WidgetBattery</listEntry>
+            <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
+            <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
+            <listEntry value="4">@Strings.WidgetCalories</listEntry>
+            <listEntry value="5">@Strings.WidgetDate</listEntry>
+            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="9">@Strings.WidgetSteps</listEntry>
+            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="11">@Strings.WidgetWeather</listEntry>
+        </settingConfig>
+    </setting>
+
 </settings>
