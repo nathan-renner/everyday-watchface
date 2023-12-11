@@ -1,13 +1,3 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-    <bitmap id="StepsIconPink" filename="steps.png">
-        <palette>
-            <color>FF6FA6</color>
-        </palette>
-    </bitmap>
-    <bitmap id="StepsIconPurple" filename="steps.png">
-        <palette>
-            <color>FF6FA6</color>
-        </palette>
-    </bitmap>
 </drawables>

@@ -12,12 +12,12 @@ using Toybox.SensorHistory;
 using Toybox.Weather;
 
 var themes as Dictionary<Number, Array<Number>> = {
-    0 => [0xFF6FA6, 0x331621],
-    1 => [0xFD6C2E, 0x331609],
-    2 => [0xDBFF00, 0x2C3300],
-    3 => [0x42FF00, 0x0D3300],
-    4 => [0x2EF0FD, 0x093033],
-    5 => [0xC72EFD, 0x280933],
+    0 => [0xFF6FA6, 0x331621, "Pink"],
+    1 => [0xFD6C2E, 0x331609, "Orange"],
+    2 => [0xDBFF00, 0x2C3300, "Yellow"],
+    3 => [0x42FF00, 0x0D3300, "Green"],
+    4 => [0x2EF0FD, 0x093033, "LightBlue"],
+    5 => [0xC72EFD, 0x280933, "Purple"],
 };
 
 var layouts as Dictionary<Number, Array<Number>> = {
@@ -27,6 +27,15 @@ var layouts as Dictionary<Number, Array<Number>> = {
     5 => [3, 2],
     6 => [3, 3],
 };
+
+var stepIconKeys = [
+    :StepsIconPink,
+    :StepsIconOrange,
+    :StepsIconYellow,
+    :StepsIconGreen,
+    :StepsIconLightBlue,
+    :StepsIconPurple,
+];
 
 var solidFields = [2, 5, 7, 8, 10, 11];
 
@@ -47,12 +56,12 @@ class EverydayView extends WatchUi.WatchFace {
         6 => 1,
     };
 
-    private var fontlg, fontsm, screenWidth, fieldRadius, fieldPenWidth;
+    private var fontlg, fontsm, screenWidth, fieldRadius, fieldPenWidth, iconsSm, iconsLg;
 
     function initialize() {
         WatchFace.initialize();
         
-        colors = themes.get(Props.getValue("ThemeColor"));
+        colors = themes[Props.getValue("ThemeColor")];
         numOfFields = Props.getValue("NumOfFields");
         tempUnit = Props.getValue("TemperatureUnit");
         showDate = Props.getValue("ShowDate");
@@ -78,8 +87,8 @@ class EverydayView extends WatchUi.WatchFace {
         var fonts = Rez.Fonts;
         fontlg = WatchUi.loadResource(numOfFields == 2 ? fonts.xl : fonts.lg) as BitmapResource;
         fontsm = WatchUi.loadResource(fonts.sm) as BitmapResource;
-        // var draw = Rez.Drawables;
-        // steps = WatchUi.loadResource(draw.StepsIconPink);
+        iconsSm = WatchUi.loadResource(fonts.iconsSm) as BitmapResource;
+        iconsLg = WatchUi.loadResource(fonts.iconsLg) as BitmapResource;
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -108,11 +117,12 @@ class EverydayView extends WatchUi.WatchFace {
             6 => Props.getValue("DataField6"),
         };
 
-        // dc.setColor(colors[0], Graphics.COLOR_BLUE);
-        // dc.drawBitmap(100, 100, steps);
-
         drawClock(dc);
         drawFields(dc);
+        
+        // dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+        // dc.drawText(150, 150, iconsSm, "BCDEFGH", Graphics.TEXT_JUSTIFY_CENTER);
+        // dc.drawText(150, 200, iconsSm, "IJKLMNOP", Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     private function drawClock (dc as Dc) {
@@ -200,11 +210,11 @@ class EverydayView extends WatchUi.WatchFace {
             case 0:
                 var total = AMInfo.activeMinutesWeek.total;
                 var goal = AMInfo.activeMinutesWeekGoal;
-                return total == 0 ? 0 : total > goal ? 1 : 1.0 * total / goal;
+                return [total == 0 ? 0 : total > goal ? 1 : 1.0 * total / goal, "K"];
             case 1:
-                return 1.0 * System.getSystemStats().battery / 100;
+                return [1.0 * System.getSystemStats().battery / 100, "B"];
             case 2:
-                return System.getDeviceSettings().phoneConnected ? "ON" : "OFF";
+                return [System.getDeviceSettings().phoneConnected ? "ON" : "OFF", "B"];
             case 3:
                 var bb = null;
                 if (
@@ -213,37 +223,37 @@ class EverydayView extends WatchUi.WatchFace {
                 ) {
                     bb = Toybox.SensorHistory.getBodyBatteryHistory({});
                 } else {
-                    return NULL_PLACEHOLDER;
+                    return [NULL_PLACEHOLDER, "O"];
                 }
 
                 bb = bb.next();
 
                 if (bb != null) {
-                    return 1.0 * bb.data / 100;
+                    return [1.0 * bb.data / 100, "O"];
                 }
 
-                return NULL_PLACEHOLDER;
+                return [NULL_PLACEHOLDER, "O"];
             case 4:
-                return 0; // not sure how to do total calories yet
+                return [0, "G"]; // not sure how to do total calories yet
             case 5: 
-                return Date.info(Time.now(), Time.FORMAT_MEDIUM).day;
+                return [Date.info(Time.now(), Time.FORMAT_MEDIUM).day, "E"];
             case 6:
                 if (!(AMInfo has :floorsClimbed)) {
-                    return NULL_PLACEHOLDER;
+                    return [NULL_PLACEHOLDER, "I"];
                 }
                 var floors = AMInfo.floorsClimbed;
                 var floorsGoal = AMInfo.floorsClimbedGoal;
-                return floors == 0 ? 0 : floors > floorsGoal ? 100 : 1.0 * floors / floorsGoal;
+                return [floors == 0 ? 0 : floors > floorsGoal ? 100 : 1.0 * floors / floorsGoal, "I"];
             case 7:
                 var hr = Activity.getActivityInfo().currentHeartRate;
                 System.println(hr);
-                return hr == null ? NULL_PLACEHOLDER : hr;
+                return [hr == null ? NULL_PLACEHOLDER : hr, "H"];
             case 8:
-                return System.getDeviceSettings().notificationCount;
+                return [System.getDeviceSettings().notificationCount, "C"];
             case 9:
                 var steps = AMInfo.steps;
                 var stepGoal = AMInfo.stepGoal;
-                return steps == 0 ? 0 : steps > stepGoal ? 100 : 1.0 * steps / stepGoal;
+                return [steps == 0 ? 0 : steps > stepGoal ? 100 : 1.0 * steps / stepGoal, "J"];
             case 10:
                 var stress = null;
                 if (
@@ -252,16 +262,16 @@ class EverydayView extends WatchUi.WatchFace {
                 ) {
                     stress = Toybox.SensorHistory.getBodyBatteryHistory({});
                 } else {
-                    return NULL_PLACEHOLDER;
+                    return [NULL_PLACEHOLDER, "P"];
                 }
 
                 stress = stress.next();
 
                 if (stress != null) {
-                    return (1.0 * stress.data / 100).toNumber();
+                    return [(1.0 * stress.data / 100).toNumber(), "P"];
                 }
 
-                return NULL_PLACEHOLDER;
+                return [NULL_PLACEHOLDER, "P"];
             case 11:
                 var temp = Weather.getCurrentConditions().temperature;
                 
@@ -269,9 +279,9 @@ class EverydayView extends WatchUi.WatchFace {
                     temp = 1.0 * temp * 9 / 5 + 32;
                 }
 
-                return Lang.format("$1$°",[temp.format("%d")]);
+                return [Lang.format("$1$°",[temp.format("%d")]), "N"];
             default: 
-                return NULL_PLACEHOLDER;
+                return [NULL_PLACEHOLDER];
         }
     }
 
@@ -284,15 +294,18 @@ class EverydayView extends WatchUi.WatchFace {
             dc.fillCircle(x, y, fieldRadius);
 
             dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-            dc.drawText(x, y - fieldRadius / 2 + 5, fontsm, data, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x, y - fieldRadius / 2 - 10, iconsSm, data[1], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x, y - fieldRadius / 2 + 8, fontsm, data[0], Graphics.TEXT_JUSTIFY_CENTER);
         } else {
             dc.setPenWidth(fieldPenWidth);
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
             dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
 
-            if (data != 0 && data != NULL_PLACEHOLDER) {
-                dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-                dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 360 * (1 - data) + 90);
+            dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, y - fieldRadius / 2, iconsLg, data[1], Graphics.TEXT_JUSTIFY_CENTER);
+
+            if (data[0] != 0 && data[0] != NULL_PLACEHOLDER) {
+                dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 360 * (1 - data[0]) + 90);
             }
         }
     }
