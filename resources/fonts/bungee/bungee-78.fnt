@@ -2,8 +2,9 @@ info face="Bungee" size=-78 bold=0 italic=0 charset="" unicode=1 stretchH=100 sm
 common lineHeight=198 base=127 scaleW=256 scaleH=256 pages=2 packed=0 alphaChnl=0 redChnl=0 greenChnl=0 blueChnl=0
 page id=0 file="bungee-78_0.png"
 page id=1 file="bungee-78_1.png"
-chars count=26
+chars count=27
 char id=32   x=251   y=0     width=3     height=1     xoffset=-1    yoffset=197   xadvance=18    page=0  chnl=15
+char id=45   x=0     y=231   width=28    height=15    xoffset=2     yoffset=92    xadvance=33    page=0  chnl=15
 char id=48   x=102   y=0     width=49    height=58    xoffset=4     yoffset=70    xadvance=57    page=0  chnl=15
 char id=49   x=132   y=0     width=42    height=56    xoffset=3     yoffset=71    xadvance=47    page=1  chnl=15
 char id=50   x=48    y=174   width=45    height=56    xoffset=2     yoffset=71    xadvance=50    page=0  chnl=15
@@ -29,7 +30,7 @@ char id=84   x=202   y=115   width=49    height=56    xoffset=1     yoffset=71  
 char id=85   x=152   y=0     width=50    height=57    xoffset=4     yoffset=71    xadvance=58    page=0  chnl=15
 char id=87   x=106   y=59    width=57    height=56    xoffset=4     yoffset=71    xadvance=65    page=0  chnl=15
 char id=8304 x=215   y=58    width=36    height=42    xoffset=4     yoffset=70    xadvance=43    page=0  chnl=15
-kernings count=17
+kernings count=27
 kerning first=49  second=52  amount=-2  
 kerning first=51  second=52  amount=-1  
 kerning first=51  second=55  amount=-1  
@@ -41,9 +42,19 @@ kerning first=56  second=52  amount=-1
 kerning first=56  second=55  amount=-1  
 kerning first=32  second=84  amount=-1  
 kerning first=65  second=84  amount=-3  
+kerning first=69  second=45  amount=-2  
 kerning first=70  second=65  amount=-3  
+kerning first=70  second=45  amount=-2  
 kerning first=70  second=32  amount=-1  
+kerning first=73  second=45  amount=-2  
 kerning first=82  second=84  amount=-2  
 kerning first=83  second=84  amount=-1  
 kerning first=84  second=65  amount=-3  
+kerning first=84  second=45  amount=-3  
 kerning first=84  second=32  amount=-1  
+kerning first=49  second=45  amount=-3  
+kerning first=45  second=84  amount=-3  
+kerning first=45  second=73  amount=-2  
+kerning first=45  second=55  amount=-2  
+kerning first=45  second=49  amount=-2  
+kerning first=45  second=51  amount=-2  

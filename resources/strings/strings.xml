@@ -6,6 +6,10 @@
     <string id="MilitaryFormatTitle">24 Hour Time</string>
     <string id="ShowDateTitle">Show Date</string>
     <string id="NumOfFieldsTitle">Number of Data Fields</string>
+    <string id="TemperatureUnitTitle">Temperature Unit</string>
+
+    <string id="DegreesF">°F</string>
+    <string id="DegreesC">°C</string>
 
     <string id="ColorPink">Pink</string>
     <string id="ColorOrange">Orange</string>

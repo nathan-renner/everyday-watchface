@@ -3,8 +3,13 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
+using Toybox.Activity;
+using Toybox.System;
 using Toybox.Time.Gregorian as Date;
 using Toybox.Application.Properties as Props;
+using Toybox.ActivityMonitor as AM;
+using Toybox.SensorHistory;
+using Toybox.Weather;
 
 var themes as Dictionary<Number, Array<Number>> = {
     0 => [0xFF6FA6, 0x331621],
@@ -25,12 +30,14 @@ var layouts as Dictionary<Number, Array<Number>> = {
 
 var solidFields = [2, 5, 7, 8, 10, 11];
 
+var NULL_PLACEHOLDER as String = "--";
+
 class EverydayView extends WatchUi.WatchFace {
     var colors as Array<Number> = themes.get(0);
     var numOfFields as Number = 6;
+    var tempUnit as Number = 0;
     var showDate as Boolean = true;
     var isMilitaryTime as Boolean = false;
-
     var fields as Dictionary<Number, Number> = {
         1 => 7,
         2 => 11,
@@ -47,6 +54,7 @@ class EverydayView extends WatchUi.WatchFace {
         
         colors = themes.get(Props.getValue("ThemeColor"));
         numOfFields = Props.getValue("NumOfFields");
+        tempUnit = Props.getValue("TemperatureUnit");
         showDate = Props.getValue("ShowDate");
         isMilitaryTime = Props.getValue("UseMilitaryFormat");
         fields = {
@@ -88,6 +96,7 @@ class EverydayView extends WatchUi.WatchFace {
         // Refresh if settings are updated
         colors = themes.get(Props.getValue("ThemeColor"));
         numOfFields = Props.getValue("NumOfFields");
+        tempUnit = Props.getValue("TemperatureUnit");
         showDate = Props.getValue("ShowDate");
         isMilitaryTime = Props.getValue("UseMilitaryFormat");
         fields = {
@@ -185,26 +194,106 @@ class EverydayView extends WatchUi.WatchFace {
         }
     }
 
-    // private function getFieldData (fieldNum as Number) {
-    //     switch (fieldNum) {
-    //         case 0:
-    //             // return active calories percent
-    //     }
-    // }
+    private function getFieldData (fieldNum as Number) {
+        var AMInfo = AM.getInfo();
+        switch (fieldNum) {
+            case 0:
+                var total = AMInfo.activeMinutesWeek.total;
+                var goal = AMInfo.activeMinutesWeekGoal;
+                return total == 0 ? 0 : total > goal ? 1 : 1.0 * total / goal;
+            case 1:
+                return 1.0 * System.getSystemStats().battery / 100;
+            case 2:
+                return System.getDeviceSettings().phoneConnected ? "ON" : "OFF";
+            case 3:
+                var bb = null;
+                if (
+                    Toybox has :SensorHistory && 
+                    Toybox.SensorHistory has :getBodyBatteryHistory
+                ) {
+                    bb = Toybox.SensorHistory.getBodyBatteryHistory({});
+                } else {
+                    return NULL_PLACEHOLDER;
+                }
+
+                bb = bb.next();
+
+                if (bb != null) {
+                    return 1.0 * bb.data / 100;
+                }
+
+                return NULL_PLACEHOLDER;
+            case 4:
+                return 0; // not sure how to do total calories yet
+            case 5: 
+                return Date.info(Time.now(), Time.FORMAT_MEDIUM).day;
+            case 6:
+                if (!(AMInfo has :floorsClimbed)) {
+                    return NULL_PLACEHOLDER;
+                }
+                var floors = AMInfo.floorsClimbed;
+                var floorsGoal = AMInfo.floorsClimbedGoal;
+                return floors == 0 ? 0 : floors > floorsGoal ? 100 : 1.0 * floors / floorsGoal;
+            case 7:
+                var hr = Activity.getActivityInfo().currentHeartRate;
+                System.println(hr);
+                return hr == null ? NULL_PLACEHOLDER : hr;
+            case 8:
+                return System.getDeviceSettings().notificationCount;
+            case 9:
+                var steps = AMInfo.steps;
+                var stepGoal = AMInfo.stepGoal;
+                return steps == 0 ? 0 : steps > stepGoal ? 100 : 1.0 * steps / stepGoal;
+            case 10:
+                var stress = null;
+                if (
+                    Toybox has :SensorHistory && 
+                    Toybox.SensorHistory has :getStressHistory
+                ) {
+                    stress = Toybox.SensorHistory.getBodyBatteryHistory({});
+                } else {
+                    return NULL_PLACEHOLDER;
+                }
+
+                stress = stress.next();
+
+                if (stress != null) {
+                    return (1.0 * stress.data / 100).toNumber();
+                }
+
+                return NULL_PLACEHOLDER;
+            case 11:
+                var temp = Weather.getCurrentConditions().temperature;
+                
+                if (tempUnit == 0) {
+                    temp = 1.0 * temp * 9 / 5 + 32;
+                }
+
+                return Lang.format("$1$°",[temp.format("%d")]);
+            default: 
+                return NULL_PLACEHOLDER;
+        }
+    }
 
     private function drawField (dc as Dc, x as Number, y as Number, fieldNum as Number) {
         var field = fields[fieldNum];
+        var data = getFieldData(field);
         
         if (solidFields.indexOf(field) != -1) {
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
             dc.fillCircle(x, y, fieldRadius);
+
+            dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, y - fieldRadius / 2 + 5, fontsm, data, Graphics.TEXT_JUSTIFY_CENTER);
         } else {
             dc.setPenWidth(fieldPenWidth);
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
             dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
 
-            dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-            dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 180);
+            if (data != 0 && data != NULL_PLACEHOLDER) {
+                dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+                dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 360 * (1 - data) + 90);
+            }
         }
     }
 

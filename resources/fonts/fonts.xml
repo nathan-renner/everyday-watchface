@@ -1,5 +1,5 @@
 <fonts>
-    <font id="sm" filename="bungee/bungee-24.fnt" filter=" 0123456789ADEFHIMNORSTUW" antialias="true"/>
-    <font id="lg" filename="bungee/bungee-78.fnt" filter=" 0123456789ADEFHIMNORSTUW" antialias="true"/>
-    <font id="xl" filename="bungee/bungee-84.fnt" filter=" 0123456789ADEFHIMNORSTUW" antialias="true"/>
+    <font id="sm" filename="bungee/bungee-24.fnt" filter=" -°0123456789ADEFHIMNORSTUW" antialias="true"/>
+    <font id="lg" filename="bungee/bungee-78.fnt" filter="0123456789" antialias="true"/>
+    <font id="xl" filename="bungee/bungee-84.fnt" filter="0123456789" antialias="true"/>
 </fonts>

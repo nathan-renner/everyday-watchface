@@ -21,6 +21,13 @@
         </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.TemperatureUnit" title="@Strings.TemperatureUnitTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.DegreesF</listEntry>
+            <listEntry value="1">@Strings.DegreesC</listEntry>
+        </settingConfig>
+    </setting>
+
     <setting propertyKey="@Properties.ShowDate" title="@Strings.ShowDateTitle">
         <settingConfig type="boolean" />
     </setting>
