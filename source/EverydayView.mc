@@ -42,6 +42,8 @@ var solidFields = [2, 5, 7, 8, 10, 11];
 var NULL_PLACEHOLDER as String = "--";
 
 class EverydayView extends WatchUi.WatchFace {
+    var inLowPower = false;
+    var canBurnIn = false;
     var colors as Array<Number> = themes.get(0);
     var numOfFields as Number = 6;
     var tempUnit as Number = 0;
@@ -61,6 +63,11 @@ class EverydayView extends WatchUi.WatchFace {
     function initialize() {
         WatchFace.initialize();
         
+        var settings = System.getDeviceSettings();
+        if (settings has :requiresBurnInProtection) {
+            canBurnIn = settings.requiresBurnInProtection;
+        }
+
         colors = themes[Props.getValue("ThemeColor")];
         numOfFields = Props.getValue("NumOfFields");
         tempUnit = Props.getValue("TemperatureUnit");
@@ -84,17 +91,14 @@ class EverydayView extends WatchUi.WatchFace {
         fieldRadius = screenWidth * 0.225 / 2;
         fieldPenWidth = fieldRadius * 0.167;
 
-        var fonts = Rez.Fonts;
-        fontlg = WatchUi.loadResource(numOfFields == 2 ? fonts.xl : fonts.lg) as BitmapResource;
-        fontsm = WatchUi.loadResource(fonts.sm) as BitmapResource;
-        iconsSm = WatchUi.loadResource(fonts.iconsSm) as BitmapResource;
-        iconsLg = WatchUi.loadResource(fonts.iconsLg) as BitmapResource;
+        loadFonts();
     }
 
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
+        loadFonts();
     }
 
     // Update the view
@@ -117,12 +121,20 @@ class EverydayView extends WatchUi.WatchFace {
             6 => Props.getValue("DataField6"),
         };
 
-        drawClock(dc);
-        drawFields(dc);
-        
-        // dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-        // dc.drawText(150, 150, iconsSm, "BCDEFGH", Graphics.TEXT_JUSTIFY_CENTER);
-        // dc.drawText(150, 200, iconsSm, "IJKLMNOP", Graphics.TEXT_JUSTIFY_CENTER);
+        if (inLowPower && canBurnIn) {
+            drawClock(dc);
+        } else {
+            drawClock(dc);
+            drawFields(dc);
+        }
+    }
+
+    private function loadFonts() {
+        var fonts = Rez.Fonts;
+        fontlg = WatchUi.loadResource(numOfFields == 2 ? fonts.xl : fonts.lg) as BitmapResource;
+        fontsm = WatchUi.loadResource(fonts.sm) as BitmapResource;
+        iconsSm = WatchUi.loadResource(fonts.iconsSm) as BitmapResource;
+        iconsLg = WatchUi.loadResource(fonts.iconsLg) as BitmapResource;
     }
 
     private function drawClock (dc as Dc) {
@@ -131,6 +143,8 @@ class EverydayView extends WatchUi.WatchFace {
         var extra = 16;
         var timeY = 12;
         var dateY = 24;
+        var colorMain = Graphics.COLOR_WHITE;
+        var colorAccent = colors[0];
         if (numOfFields == 6) {
             timeY = 0;
             dateY = 12;
@@ -139,14 +153,21 @@ class EverydayView extends WatchUi.WatchFace {
             dateY += extra;
         }
 
+        if (inLowPower && canBurnIn) {
+            colorMain = Graphics.COLOR_LT_GRAY;
+            colorAccent = Graphics.COLOR_LT_GRAY;
+            timeY = screenWidth / 4;
+            dateY = screenWidth / 4 + 12;
+        }
+
         if (showDate == true) {
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(colorMain, Graphics.COLOR_TRANSPARENT);
             dc.drawText(screenWidth / 2, dateY, fontsm, dateString, Graphics.TEXT_JUSTIFY_CENTER);
         }
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(colorMain, Graphics.COLOR_TRANSPARENT);
         dc.drawText(screenWidth / 2, timeY, fontlg, time[0], Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+        dc.setColor(colorAccent, Graphics.COLOR_TRANSPARENT);
         dc.drawText(screenWidth / 2, timeY, fontlg, time[1], Graphics.TEXT_JUSTIFY_LEFT);
     }
 
@@ -205,83 +226,93 @@ class EverydayView extends WatchUi.WatchFace {
     }
 
     private function getFieldData (fieldNum as Number) {
-        var AMInfo = AM.getInfo();
-        switch (fieldNum) {
-            case 0:
-                var total = AMInfo.activeMinutesWeek.total;
-                var goal = AMInfo.activeMinutesWeekGoal;
-                return [total == 0 ? 0 : total > goal ? 1 : 1.0 * total / goal, "K"];
-            case 1:
-                return [1.0 * System.getSystemStats().battery / 100, "B"];
-            case 2:
-                return [System.getDeviceSettings().phoneConnected ? "ON" : "OFF", "B"];
-            case 3:
-                var bb = null;
-                if (
-                    Toybox has :SensorHistory && 
-                    Toybox.SensorHistory has :getBodyBatteryHistory
-                ) {
-                    bb = Toybox.SensorHistory.getBodyBatteryHistory({});
-                } else {
-                    return [NULL_PLACEHOLDER, "O"];
-                }
-
-                bb = bb.next();
-
-                if (bb != null) {
-                    return [1.0 * bb.data / 100, "O"];
-                }
-
+        if (fieldNum == 0) {
+            var AMInfo = AM.getInfo();
+            var total = AMInfo.activeMinutesWeek.total;
+            var goal = AMInfo.activeMinutesWeekGoal;
+            
+            return [total == 0 ? 0 : total > goal ? 1 : 1.0 * total / goal, "K"];
+        } 
+        else if (fieldNum == 1) {
+            return [1.0 * System.getSystemStats().battery / 100, "B"];
+        } 
+        else if (fieldNum == 2) {
+            return [System.getDeviceSettings().phoneConnected ? "ON" : "OFF", "B"];
+        } 
+        else if (fieldNum == 3) {
+            if (
+                !(Toybox has :SensorHistory && 
+                Toybox.SensorHistory has :getBodyBatteryHistory)
+            ) {
                 return [NULL_PLACEHOLDER, "O"];
-            case 4:
-                return [0, "G"]; // not sure how to do total calories yet
-            case 5: 
-                return [Date.info(Time.now(), Time.FORMAT_MEDIUM).day, "E"];
-            case 6:
-                if (!(AMInfo has :floorsClimbed)) {
-                    return [NULL_PLACEHOLDER, "I"];
-                }
-                var floors = AMInfo.floorsClimbed;
-                var floorsGoal = AMInfo.floorsClimbedGoal;
-                return [floors == 0 ? 0 : floors > floorsGoal ? 100 : 1.0 * floors / floorsGoal, "I"];
-            case 7:
-                var hr = Activity.getActivityInfo().currentHeartRate;
-                System.println(hr);
-                return [hr == null ? NULL_PLACEHOLDER : hr, "H"];
-            case 8:
-                return [System.getDeviceSettings().notificationCount, "C"];
-            case 9:
-                var steps = AMInfo.steps;
-                var stepGoal = AMInfo.stepGoal;
-                return [steps == 0 ? 0 : steps > stepGoal ? 100 : 1.0 * steps / stepGoal, "J"];
-            case 10:
-                var stress = null;
-                if (
-                    Toybox has :SensorHistory && 
-                    Toybox.SensorHistory has :getStressHistory
-                ) {
-                    stress = Toybox.SensorHistory.getBodyBatteryHistory({});
-                } else {
-                    return [NULL_PLACEHOLDER, "P"];
-                }
+            }
 
-                stress = stress.next();
+            var bb = Toybox.SensorHistory.getBodyBatteryHistory({});
+            bb = bb.next();
 
-                if (stress != null) {
-                    return [(1.0 * stress.data / 100).toNumber(), "P"];
-                }
+            if (bb != null) {
+                return [1.0 * bb.data / 100, "O"];
+            }
 
+            return [NULL_PLACEHOLDER, "O"];
+        } 
+        else if (fieldNum == 4) {
+            return [0, "G"]; // not sure how to do total calories yet
+        } 
+        else if (fieldNum == 5) {
+            return [Date.info(Time.now(), Time.FORMAT_MEDIUM).day, "E"];
+        } 
+        else if (fieldNum == 6) {
+            var AMInfo = AM.getInfo();
+            if (!(AMInfo has :floorsClimbed)) {
+                return [NULL_PLACEHOLDER, "I"];
+            }
+            var floors = AMInfo.floorsClimbed;
+            var floorsGoal = AMInfo.floorsClimbedGoal;
+            return [floors == 0 ? 0 : floors > floorsGoal ? 100 : 1.0 * floors / floorsGoal, "I"];
+        } 
+        else if (fieldNum == 7) {
+            var hr = Activity.getActivityInfo().currentHeartRate;
+
+            return [hr == null ? NULL_PLACEHOLDER : hr, "H"];
+        } 
+        else if (fieldNum == 8) {
+            return [System.getDeviceSettings().notificationCount, "C"];
+        } 
+        else if (fieldNum == 9) {
+            var AMInfo = AM.getInfo();
+            var steps = AMInfo.steps;
+            var stepGoal = AMInfo.stepGoal;
+            return [steps == 0 ? 0 : steps > stepGoal ? 100 : 1.0 * steps / stepGoal, "J"];
+        } 
+        else if (fieldNum == 10) {
+            if (
+                !(Toybox has :SensorHistory && 
+                Toybox.SensorHistory has :getStressHistory)
+            ) {
                 return [NULL_PLACEHOLDER, "P"];
-            case 11:
-                var temp = Weather.getCurrentConditions().temperature;
-                
-                if (tempUnit == 0) {
-                    temp = 1.0 * temp * 9 / 5 + 32;
-                }
+            }
 
-                return [Lang.format("$1$°",[temp.format("%d")]), "N"];
-            default: 
-                return [NULL_PLACEHOLDER];
+            var stress = Toybox.SensorHistory.getBodyBatteryHistory({});
+            stress = stress.next();
+
+            if (stress != null) {
+                return [(1.0 * stress.data / 100).toNumber(), "P"];
+            }
+
+            return [NULL_PLACEHOLDER, "P"];
+        } 
+        else if (fieldNum == 11) {
+            var temp = Weather.getCurrentConditions().temperature;
+                
+            if (tempUnit == 0) {
+                temp = 1.0 * temp * 9 / 5 + 32;
+            }
+
+            return [Lang.format("$1$°",[temp.format("%d")]), "N"];
+        }
+        else {
+            return [NULL_PLACEHOLDER];
         }
     }
 
@@ -314,14 +345,22 @@ class EverydayView extends WatchUi.WatchFace {
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() as Void {
+        fontlg = null;
+        fontsm = null;
+        iconsSm = null;
+        iconsLg = null;
     }
 
     // The user has just looked at their watch. Timers and animations may be started here.
-    function onExitSleep() as Void {
+    function onExitSleep() as Void {    
+        inLowPower = false;
+    	WatchUi.requestUpdate();
     }
 
     // Terminate any active timers and prepare for slow updates.
     function onEnterSleep() as Void {
+        inLowPower = true;
+    	WatchUi.requestUpdate(); 
     }
 
 }
