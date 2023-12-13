@@ -35,13 +35,13 @@
     <string id="WidgetBattery">Battery</string>
     <string id="WidgetBluetoothConnection">Bluetooth Connection</string>
     <string id="WidgetBodyBattery">Body Battery</string>
-    <string id="WidgetCalories">Calories Burned</string>
     <string id="WidgetDate">Date</string>
     <string id="WidgetFloorsClimbed">Floors Climbed</string>
     <string id="WidgetHeartRate">Heart Rate</string>
     <string id="WidgetNotifications">Notifications</string>
     <string id="WidgetSteps">Steps</string>
     <string id="WidgetStress">Stress</string>
+    <string id="WidgetRecovery">Time To Recovery</string>
     <string id="WidgetWeather">Weather</string>
 
 </strings>

@@ -42,13 +42,13 @@
             <listEntry value="1">@Strings.WidgetBattery</listEntry>
             <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
             <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
-            <listEntry value="4">@Strings.WidgetCalories</listEntry>
-            <listEntry value="5">@Strings.WidgetDate</listEntry>
-            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
-            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
-            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
-            <listEntry value="9">@Strings.WidgetSteps</listEntry>
-            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="4">@Strings.WidgetDate</listEntry>
+            <listEntry value="5">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="6">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="7">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="8">@Strings.WidgetSteps</listEntry>
+            <listEntry value="9">@Strings.WidgetStress</listEntry>
+            <listEntry value="10">@Strings.WidgetRecovery</listEntry>
             <listEntry value="11">@Strings.WidgetWeather</listEntry>
         </settingConfig>
     </setting>
@@ -59,13 +59,13 @@
             <listEntry value="1">@Strings.WidgetBattery</listEntry>
             <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
             <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
-            <listEntry value="4">@Strings.WidgetCalories</listEntry>
-            <listEntry value="5">@Strings.WidgetDate</listEntry>
-            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
-            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
-            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
-            <listEntry value="9">@Strings.WidgetSteps</listEntry>
-            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="4">@Strings.WidgetDate</listEntry>
+            <listEntry value="5">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="6">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="7">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="8">@Strings.WidgetSteps</listEntry>
+            <listEntry value="9">@Strings.WidgetStress</listEntry>
+            <listEntry value="10">@Strings.WidgetRecovery</listEntry>
             <listEntry value="11">@Strings.WidgetWeather</listEntry>
         </settingConfig>
     </setting>
@@ -76,13 +76,13 @@
             <listEntry value="1">@Strings.WidgetBattery</listEntry>
             <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
             <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
-            <listEntry value="4">@Strings.WidgetCalories</listEntry>
-            <listEntry value="5">@Strings.WidgetDate</listEntry>
-            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
-            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
-            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
-            <listEntry value="9">@Strings.WidgetSteps</listEntry>
-            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="4">@Strings.WidgetDate</listEntry>
+            <listEntry value="5">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="6">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="7">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="8">@Strings.WidgetSteps</listEntry>
+            <listEntry value="9">@Strings.WidgetStress</listEntry>
+            <listEntry value="10">@Strings.WidgetRecovery</listEntry>
             <listEntry value="11">@Strings.WidgetWeather</listEntry>
         </settingConfig>
     </setting>
@@ -93,13 +93,13 @@
             <listEntry value="1">@Strings.WidgetBattery</listEntry>
             <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
             <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
-            <listEntry value="4">@Strings.WidgetCalories</listEntry>
-            <listEntry value="5">@Strings.WidgetDate</listEntry>
-            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
-            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
-            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
-            <listEntry value="9">@Strings.WidgetSteps</listEntry>
-            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="4">@Strings.WidgetDate</listEntry>
+            <listEntry value="5">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="6">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="7">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="8">@Strings.WidgetSteps</listEntry>
+            <listEntry value="9">@Strings.WidgetStress</listEntry>
+            <listEntry value="10">@Strings.WidgetRecovery</listEntry>
             <listEntry value="11">@Strings.WidgetWeather</listEntry>
         </settingConfig>
     </setting>
@@ -110,13 +110,13 @@
             <listEntry value="1">@Strings.WidgetBattery</listEntry>
             <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
             <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
-            <listEntry value="4">@Strings.WidgetCalories</listEntry>
-            <listEntry value="5">@Strings.WidgetDate</listEntry>
-            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
-            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
-            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
-            <listEntry value="9">@Strings.WidgetSteps</listEntry>
-            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="4">@Strings.WidgetDate</listEntry>
+            <listEntry value="5">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="6">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="7">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="8">@Strings.WidgetSteps</listEntry>
+            <listEntry value="9">@Strings.WidgetStress</listEntry>
+            <listEntry value="10">@Strings.WidgetRecovery</listEntry>
             <listEntry value="11">@Strings.WidgetWeather</listEntry>
         </settingConfig>
     </setting>
@@ -127,13 +127,13 @@
             <listEntry value="1">@Strings.WidgetBattery</listEntry>
             <listEntry value="2">@Strings.WidgetBluetoothConnection</listEntry>
             <listEntry value="3">@Strings.WidgetBodyBattery</listEntry>
-            <listEntry value="4">@Strings.WidgetCalories</listEntry>
-            <listEntry value="5">@Strings.WidgetDate</listEntry>
-            <listEntry value="6">@Strings.WidgetFloorsClimbed</listEntry>
-            <listEntry value="7">@Strings.WidgetHeartRate</listEntry>
-            <listEntry value="8">@Strings.WidgetNotifications</listEntry>
-            <listEntry value="9">@Strings.WidgetSteps</listEntry>
-            <listEntry value="10">@Strings.WidgetStress</listEntry>
+            <listEntry value="4">@Strings.WidgetDate</listEntry>
+            <listEntry value="5">@Strings.WidgetFloorsClimbed</listEntry>
+            <listEntry value="6">@Strings.WidgetHeartRate</listEntry>
+            <listEntry value="7">@Strings.WidgetNotifications</listEntry>
+            <listEntry value="8">@Strings.WidgetSteps</listEntry>
+            <listEntry value="9">@Strings.WidgetStress</listEntry>
+            <listEntry value="10">@Strings.WidgetRecovery</listEntry>
             <listEntry value="11">@Strings.WidgetWeather</listEntry>
         </settingConfig>
     </setting>

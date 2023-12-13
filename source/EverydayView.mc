@@ -37,7 +37,7 @@ var stepIconKeys = [
     :StepsIconPurple,
 ];
 
-var solidFields = [2, 5, 7, 8, 10, 11];
+var solidFields = [2, 4, 6, 7, 9, 10, 11];
 
 var NULL_PLACEHOLDER as String = "--";
 
@@ -231,76 +231,80 @@ class EverydayView extends WatchUi.WatchFace {
             var total = AMInfo.activeMinutesWeek.total;
             var goal = AMInfo.activeMinutesWeekGoal;
             
-            return [total == 0 ? 0 : total > goal ? 1 : 1.0 * total / goal, "K"];
+            return [total == 0 ? 0 : total > goal ? 1 : 1.0 * total / goal, "A"];
         } 
         else if (fieldNum == 1) {
             return [1.0 * System.getSystemStats().battery / 100, "B"];
         } 
         else if (fieldNum == 2) {
-            return [System.getDeviceSettings().phoneConnected ? "ON" : "OFF", "B"];
+            return [System.getDeviceSettings().phoneConnected ? "ON" : "OFF", "C"];
         } 
         else if (fieldNum == 3) {
             if (
                 !(Toybox has :SensorHistory && 
                 Toybox.SensorHistory has :getBodyBatteryHistory)
             ) {
-                return [NULL_PLACEHOLDER, "O"];
+                return [NULL_PLACEHOLDER, "D"];
             }
 
             var bb = Toybox.SensorHistory.getBodyBatteryHistory({});
             bb = bb.next();
 
             if (bb != null) {
-                return [1.0 * bb.data / 100, "O"];
+                return [1.0 * bb.data / 100, "D"];
             }
 
-            return [NULL_PLACEHOLDER, "O"];
+            return [NULL_PLACEHOLDER, "D"];
         } 
         else if (fieldNum == 4) {
-            return [0, "G"]; // not sure how to do total calories yet
-        } 
-        else if (fieldNum == 5) {
             return [Date.info(Time.now(), Time.FORMAT_MEDIUM).day, "E"];
         } 
-        else if (fieldNum == 6) {
+        else if (fieldNum == 5) {
             var AMInfo = AM.getInfo();
             if (!(AMInfo has :floorsClimbed)) {
-                return [NULL_PLACEHOLDER, "I"];
+                return [NULL_PLACEHOLDER, "F"];
             }
             var floors = AMInfo.floorsClimbed;
             var floorsGoal = AMInfo.floorsClimbedGoal;
-            return [floors == 0 ? 0 : floors > floorsGoal ? 100 : 1.0 * floors / floorsGoal, "I"];
+            return [floors == 0 ? 0 : floors > floorsGoal ? 100 : 1.0 * floors / floorsGoal, "F"];
         } 
-        else if (fieldNum == 7) {
+        else if (fieldNum == 6) {
             var hr = Activity.getActivityInfo().currentHeartRate;
 
-            return [hr == null ? NULL_PLACEHOLDER : hr, "H"];
+            return [hr == null ? NULL_PLACEHOLDER : hr, "G"];
+        } 
+        else if (fieldNum == 7) {
+            return [System.getDeviceSettings().notificationCount, "H"];
         } 
         else if (fieldNum == 8) {
-            return [System.getDeviceSettings().notificationCount, "C"];
-        } 
-        else if (fieldNum == 9) {
             var AMInfo = AM.getInfo();
             var steps = AMInfo.steps;
             var stepGoal = AMInfo.stepGoal;
             return [steps == 0 ? 0 : steps > stepGoal ? 100 : 1.0 * steps / stepGoal, "J"];
         } 
-        else if (fieldNum == 10) {
+        else if (fieldNum == 9) {
             if (
                 !(Toybox has :SensorHistory && 
                 Toybox.SensorHistory has :getStressHistory)
             ) {
-                return [NULL_PLACEHOLDER, "P"];
+                return [NULL_PLACEHOLDER, "K"];
             }
 
             var stress = Toybox.SensorHistory.getBodyBatteryHistory({});
             stress = stress.next();
 
             if (stress != null) {
-                return [(1.0 * stress.data / 100).toNumber(), "P"];
+                return [(1.0 * stress.data / 100).toNumber(), "K"];
             }
 
-            return [NULL_PLACEHOLDER, "P"];
+            return [NULL_PLACEHOLDER, "K"];
+        } 
+        else if (fieldNum == 10) {
+            if (!(AM.getInfo() has :timeToRecovery)) {
+                return [NULL_PLACEHOLDER, "G"];
+            }
+            var time = AM.getInfo().timeToRecovery;
+            return [time == null ? 0 : time, "G"];
         } 
         else if (fieldNum == 11) {
             var temp = Weather.getCurrentConditions().temperature;
@@ -309,7 +313,7 @@ class EverydayView extends WatchUi.WatchFace {
                 temp = 1.0 * temp * 9 / 5 + 32;
             }
 
-            return [Lang.format("$1$°",[temp.format("%d")]), "N"];
+            return [Lang.format("$1$°",[temp.format("%d")]), "P"];
         }
         else {
             return [NULL_PLACEHOLDER];
