@@ -307,13 +307,36 @@ class EverydayView extends WatchUi.WatchFace {
             return [time == null ? 0 : time, "G"];
         } 
         else if (fieldNum == 11) {
-            var temp = Weather.getCurrentConditions().temperature;
+            var conditions = Weather.getCurrentConditions();
+            var temp = conditions.temperature;
+            var c = conditions.condition;
+            var icon;
                 
             if (tempUnit == 0) {
                 temp = 1.0 * temp * 9 / 5 + 32;
             }
 
-            return [Lang.format("$1$°",[temp.format("%d")]), "P"];
+            if (c == 0 || c == 23) {
+                // sunny
+                icon = "P";
+            } else if (c == 1 || c == 22 || c == 52) {
+                // partly cloudy
+                icon = "M";
+            } else if (c == 2 || c == 20 || c == 40) {
+                // cloudy
+                icon = "L";
+            } else if (c == 4 || c == 7 || c == 16 || c == 17 || c == 18 || c == 19 || c == 21 || c == 34 || c == 43 || c == 44 || c == 45 || c == 46 || c == 46 || c == 48 || c == 49 || c == 50 || c == 51) {
+                // snow
+                icon = "O";
+            } else if (c == 6 || c == 11 || c == 12 || c == 28 || c == 32) {
+                // thunderstorm
+                icon = "Q";
+            } else {
+                // raining?
+                icon = "N";
+            }
+
+            return [Lang.format("$1$°",[temp.format("%d")]), icon];
         }
         else {
             return [NULL_PLACEHOLDER];
