@@ -12,10 +12,13 @@
     <string id="DegreesC">°C</string>
 
     <string id="ColorPink">Pink</string>
+    <string id="ColorRed">Red</string>
     <string id="ColorOrange">Orange</string>
     <string id="ColorYellow">Yellow</string>
+    <string id="ColorMint">Mint</string>
     <string id="ColorGreen">Green</string>
     <string id="ColorLightBlue">Light Blue</string>
+    <string id="ColorBlue">Blue</string>
     <string id="ColorPurple">Purple</string>
 
     <string id="Num2">2</string>

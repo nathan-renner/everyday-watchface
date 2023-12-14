@@ -1,5 +1,5 @@
 <properties>
-    <property id="ThemeColor" type="number">0</property>
+    <property id="ThemeColor" type="number">3</property>
     <property id="NumOfFields" type="number">6</property>
     <property id="TemperatureUnit" type="number">0</property>
     <property id="ShowDate" type="boolean">true</property>

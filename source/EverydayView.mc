@@ -13,11 +13,14 @@ using Toybox.Weather;
 
 var themes as Dictionary<Number, Array<Number>> = {
     0 => [0xFF6FA6, 0x331621, "Pink"],
-    1 => [0xFD6C2E, 0x331609, "Orange"],
-    2 => [0xDBFF00, 0x2C3300, "Yellow"],
-    3 => [0x42FF00, 0x0D3300, "Green"],
-    4 => [0x2EF0FD, 0x093033, "LightBlue"],
-    5 => [0xC72EFD, 0x280933, "Purple"],
+    1 => [0xFF3131, 0x330A0A, "Red"],
+    2 => [0xFD6C2E, 0x331609, "Orange"],
+    3 => [0xDBFF00, 0x2C3300, "Yellow"],
+    4 => [0x5EF1C5, 0x133027, "Mint"],
+    5 => [0x42FF00, 0x0D3300, "Green"],
+    6 => [0x2EF0FD, 0x093033, "LightBlue"],
+    7 => [0x316BFF, 0x0A1533, "Blue"],
+    8 => [0xC72EFD, 0x280933, "Purple"],
 };
 
 var layouts as Dictionary<Number, Array<Number>> = {
@@ -301,10 +304,10 @@ class EverydayView extends WatchUi.WatchFace {
         } 
         else if (fieldNum == 10) {
             if (!(AM.getInfo() has :timeToRecovery)) {
-                return [NULL_PLACEHOLDER, "G"];
+                return [NULL_PLACEHOLDER, "I"];
             }
             var time = AM.getInfo().timeToRecovery;
-            return [time == null ? 0 : time, "G"];
+            return [time == null ? 0 : time, "I"];
         } 
         else if (fieldNum == 11) {
             var conditions = Weather.getCurrentConditions();
@@ -322,7 +325,7 @@ class EverydayView extends WatchUi.WatchFace {
             } else if (c == 1 || c == 22 || c == 52) {
                 // partly cloudy
                 icon = "M";
-            } else if (c == 2 || c == 20 || c == 40) {
+            } else if (c == 2 || c == 5 || c == 8 || c == 20 || c == 40) {
                 // cloudy
                 icon = "L";
             } else if (c == 4 || c == 7 || c == 16 || c == 17 || c == 18 || c == 19 || c == 21 || c == 34 || c == 43 || c == 44 || c == 45 || c == 46 || c == 46 || c == 48 || c == 49 || c == 50 || c == 51) {
@@ -332,7 +335,7 @@ class EverydayView extends WatchUi.WatchFace {
                 // thunderstorm
                 icon = "Q";
             } else {
-                // raining?
+                // raining
                 icon = "N";
             }
 
@@ -353,6 +356,7 @@ class EverydayView extends WatchUi.WatchFace {
 
             dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
             dc.drawText(x, y - fieldRadius / 2 - 10, iconsSm, data[1], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             dc.drawText(x, y - fieldRadius / 2 + 8, fontsm, data[0], Graphics.TEXT_JUSTIFY_CENTER);
         } else {
             dc.setPenWidth(fieldPenWidth);
