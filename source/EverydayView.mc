@@ -61,7 +61,7 @@ class EverydayView extends WatchUi.WatchFace {
         6 => 1,
     };
 
-    private var fontlg, fontsm, screenWidth, fieldRadius, fieldPenWidth, iconsSm, iconsLg;
+    private var fontlg, fontsm, screenHeight, screenWidth, fieldRadius, fieldPenWidth, iconsSm, iconsLg;
 
     function initialize() {
         WatchFace.initialize();
@@ -90,6 +90,7 @@ class EverydayView extends WatchUi.WatchFace {
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.WatchFace(dc));
 
+        screenHeight = dc.getHeight();
         screenWidth = dc.getWidth();
         fieldRadius = screenWidth * 0.225 / 2;
         fieldPenWidth = fieldRadius * 0.167;
@@ -143,24 +144,26 @@ class EverydayView extends WatchUi.WatchFace {
     private function drawClock (dc as Dc) {
         var dateString = getDateString();
         var time = getTime();
-        var extra = 16;
-        var timeY = 12;
-        var dateY = 24;
         var colorMain = Graphics.COLOR_WHITE;
         var colorAccent = colors[0];
+
+        var multiplier = (screenHeight * 0.03).toNumber();
+        var timeY = multiplier;
+        var dateY = (multiplier * 1.8).toNumber();
+
         if (numOfFields == 6) {
-            timeY = 0;
-            dateY = 12;
+            timeY = (multiplier * -0.2).toNumber();
+            dateY = multiplier;
         } else if (numOfFields <= 3) {
-            timeY += extra;
-            dateY += extra;
+            timeY += multiplier * 2;
+            dateY += multiplier * 2;
         }
 
         if (inLowPower && canBurnIn) {
             colorMain = Graphics.COLOR_LT_GRAY;
             colorAccent = Graphics.COLOR_LT_GRAY;
-            timeY = screenWidth / 4;
-            dateY = screenWidth / 4 + 12;
+            timeY = screenHeight / 4;
+            dateY = screenHeight / 4 + multiplier;
         }
 
         if (showDate == true) {
@@ -174,7 +177,7 @@ class EverydayView extends WatchUi.WatchFace {
         dc.drawText(screenWidth / 2, timeY, fontlg, time[1], Graphics.TEXT_JUSTIFY_LEFT);
     }
 
-    private function getTime () as Array<String>  {
+    private function getTime() as Array<String>  {
         var clockTime = System.getClockTime();
         var hour = clockTime.hour;      
         if (!isMilitaryTime) {
@@ -196,17 +199,16 @@ class EverydayView extends WatchUi.WatchFace {
 
     private function drawFields(dc as Dc) {
         var layout = layouts[numOfFields];
-        var gap = 15;
-        var topRowY = 208;
+        var gap = (screenWidth * 0.04).toNumber();
+        var topRowY = (screenHeight * 0.53).toNumber();
 
         if (numOfFields == 6) {
-            topRowY -= 18;
+            topRowY -= (screenHeight * 0.05).toNumber();
         } else if (numOfFields <= 3) {
-            topRowY += 30;
+            topRowY += (screenHeight * 0.077).toNumber();
         }
         var bottomRowY = topRowY + fieldRadius * 2 + gap;
         var middle = screenWidth / 2;
-        // var fieldAndGap = fieldRadius + gap;
 
         for (var i = 0; i < layout.size(); i++) {
             var rowY = i == 0 ? topRowY : bottomRowY;
@@ -349,15 +351,16 @@ class EverydayView extends WatchUi.WatchFace {
     private function drawField (dc as Dc, x as Number, y as Number, fieldNum as Number) {
         var field = fields[fieldNum];
         var data = getFieldData(field);
+        var buffer = (screenHeight * 0.025).toNumber();
         
-        if (solidFields.indexOf(field) != -1) {
+        if (solidFields.indexOf(field) >= 0) {
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
             dc.fillCircle(x, y, fieldRadius);
 
             dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-            dc.drawText(x, y - fieldRadius / 2 - 10, iconsSm, data[1], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x, y - fieldRadius / 2 - buffer, iconsSm, data[1], Graphics.TEXT_JUSTIFY_CENTER);
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(x, y - fieldRadius / 2 + 8, fontsm, data[0], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x, y - fieldRadius / 2 + buffer, fontsm, data[0], Graphics.TEXT_JUSTIFY_CENTER);
         } else {
             dc.setPenWidth(fieldPenWidth);
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
