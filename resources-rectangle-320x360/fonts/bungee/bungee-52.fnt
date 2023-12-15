@@ -1,0 +1,64 @@
+info face="Bungee" size=-52 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+common lineHeight=133 base=85 scaleW=256 scaleH=256 pages=1 packed=0 alphaChnl=0 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="bungee-52_0.png"
+chars count=27
+char id=32   x=244   y=0     width=3     height=1     xoffset=-1    yoffset=132   xadvance=12    page=0  chnl=15
+char id=45   x=80    y=116   width=20    height=10    xoffset=1     yoffset=62    xadvance=22    page=0  chnl=15
+char id=48   x=0     y=0     width=34    height=39    xoffset=2     yoffset=47    xadvance=38    page=0  chnl=15
+char id=49   x=217   y=76    width=28    height=37    xoffset=2     yoffset=48    xadvance=31    page=0  chnl=15
+char id=50   x=32    y=78    width=30    height=37    xoffset=1     yoffset=48    xadvance=33    page=0  chnl=15
+char id=51   x=63    y=78    width=30    height=37    xoffset=2     yoffset=48    xadvance=33    page=0  chnl=15
+char id=52   x=0     y=78    width=31    height=37    xoffset=3     yoffset=48    xadvance=37    page=0  chnl=15
+char id=53   x=94    y=78    width=30    height=37    xoffset=2     yoffset=48    xadvance=34    page=0  chnl=15
+char id=54   x=138   y=0     width=32    height=38    xoffset=2     yoffset=48    xadvance=36    page=0  chnl=15
+char id=55   x=125   y=77    width=30    height=37    xoffset=1     yoffset=48    xadvance=33    page=0  chnl=15
+char id=56   x=70    y=0     width=33    height=39    xoffset=2     yoffset=47    xadvance=37    page=0  chnl=15
+char id=57   x=171   y=0     width=32    height=38    xoffset=2     yoffset=47    xadvance=36    page=0  chnl=15
+char id=65   x=39    y=40    width=34    height=37    xoffset=2     yoffset=48    xadvance=38    page=0  chnl=15
+char id=68   x=74    y=40    width=34    height=37    xoffset=3     yoffset=48    xadvance=39    page=0  chnl=15
+char id=69   x=187   y=77    width=29    height=37    xoffset=3     yoffset=48    xadvance=34    page=0  chnl=15
+char id=70   x=0     y=116   width=28    height=37    xoffset=3     yoffset=48    xadvance=32    page=0  chnl=15
+char id=72   x=109   y=39    width=34    height=37    xoffset=3     yoffset=48    xadvance=39    page=0  chnl=15
+char id=73   x=29    y=116   width=27    height=37    xoffset=2     yoffset=48    xadvance=31    page=0  chnl=15
+char id=77   x=0     y=40    width=38    height=37    xoffset=3     yoffset=48    xadvance=44    page=0  chnl=15
+char id=78   x=179   y=39    width=33    height=37    xoffset=3     yoffset=48    xadvance=39    page=0  chnl=15
+char id=79   x=35    y=0     width=34    height=39    xoffset=2     yoffset=47    xadvance=38    page=0  chnl=15
+char id=82   x=144   y=39    width=34    height=37    xoffset=3     yoffset=48    xadvance=39    page=0  chnl=15
+char id=83   x=156   y=77    width=30    height=37    xoffset=2     yoffset=48    xadvance=34    page=0  chnl=15
+char id=84   x=213   y=38    width=32    height=37    xoffset=1     yoffset=48    xadvance=34    page=0  chnl=15
+char id=85   x=104   y=0     width=33    height=38    xoffset=3     yoffset=48    xadvance=39    page=0  chnl=15
+char id=87   x=204   y=0     width=39    height=37    xoffset=2     yoffset=48    xadvance=43    page=0  chnl=15
+char id=176  x=57    y=116   width=22    height=21    xoffset=2     yoffset=48    xadvance=25    page=0  chnl=15
+kernings count=32
+kerning first=49  second=52  amount=-2  
+kerning first=49  second=176 amount=-3  
+kerning first=51  second=52  amount=-1  
+kerning first=51  second=55  amount=-1  
+kerning first=51  second=176 amount=-1  
+kerning first=53  second=55  amount=-1  
+kerning first=54  second=52  amount=-1  
+kerning first=54  second=55  amount=-1  
+kerning first=56  second=51  amount=-1  
+kerning first=56  second=52  amount=-1  
+kerning first=56  second=55  amount=-1  
+kerning first=56  second=176 amount=-1  
+kerning first=176 second=49  amount=-1  
+kerning first=176 second=56  amount=-1  
+kerning first=32  second=84  amount=-1  
+kerning first=65  second=84  amount=-2  
+kerning first=69  second=45  amount=-1  
+kerning first=70  second=65  amount=-2  
+kerning first=70  second=45  amount=-1  
+kerning first=70  second=32  amount=-1  
+kerning first=73  second=45  amount=-1  
+kerning first=82  second=84  amount=-2  
+kerning first=83  second=84  amount=-1  
+kerning first=84  second=65  amount=-2  
+kerning first=84  second=45  amount=-2  
+kerning first=84  second=32  amount=-1  
+kerning first=49  second=45  amount=-2  
+kerning first=45  second=84  amount=-2  
+kerning first=45  second=73  amount=-1  
+kerning first=45  second=55  amount=-1  
+kerning first=45  second=49  amount=-1  
+kerning first=45  second=51  amount=-1  

@@ -60,7 +60,7 @@ class EverydayView extends WatchUi.WatchFace {
         5 => 3,
         6 => 1,
     };
-
+    var isSquare = System.getDeviceSettings().screenShape == 3;
     private var fontlg, fontmd, fontsm, screenHeight, screenWidth, fieldRadius, fieldPenWidth, iconsSm, iconsLg;
 
     function initialize() {
@@ -92,7 +92,7 @@ class EverydayView extends WatchUi.WatchFace {
 
         screenHeight = dc.getHeight();
         screenWidth = dc.getWidth();
-        fieldRadius = screenWidth * 0.225 / 2;
+        fieldRadius = isSquare ? screenWidth * 0.14 : screenWidth * 0.1125;
         fieldPenWidth = fieldRadius * 0.167;
 
         loadFonts();
@@ -151,16 +151,16 @@ class EverydayView extends WatchUi.WatchFace {
         var colorMain = Graphics.COLOR_WHITE;
         var colorAccent = colors[0];
 
-        var multiplier = (screenHeight * 0.03).toNumber();
+        var multiplier = isSquare ? (screenHeight * 0.01).toNumber() : (screenHeight * 0.03).toNumber();
         var timeY = multiplier;
         var dateY = (multiplier * 1.8).toNumber();
 
-        if (numOfFields == 6) {
-            timeY = (multiplier * -0.2).toNumber();
-            dateY = multiplier;
+        if (isSquare ? numOfFields > 3 : numOfFields == 6) {
+            timeY = (multiplier * -0.3).toNumber();
+            dateY = isSquare ? (multiplier * 0.9).toNumber() : multiplier;
         } else if (numOfFields <= 3) {
-            timeY += multiplier * 2;
-            dateY += multiplier * 2;
+            timeY += isSquare ? multiplier * 4 : multiplier * 2;
+            dateY += isSquare ? multiplier * 4 : multiplier * 2;
         }
 
         if (inLowPower && canBurnIn) {
@@ -206,7 +206,7 @@ class EverydayView extends WatchUi.WatchFace {
         var gap = (screenWidth * 0.04).toNumber();
         var topRowY = (screenHeight * 0.53).toNumber();
 
-        if (numOfFields == 6) {
+        if (isSquare ? numOfFields > 3 : numOfFields == 6) {
             topRowY -= (screenHeight * 0.05).toNumber();
         } else if (numOfFields <= 3) {
             topRowY += (screenHeight * 0.077).toNumber();
