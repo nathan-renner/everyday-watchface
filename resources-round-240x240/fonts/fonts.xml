@@ -1,0 +1,8 @@
+<fonts>
+    <font id="iconsSm" filename="icons/icons-20.fnt" filter="CEGHIKLMNOPQ" antialias="true" />
+    <font id="iconsLg" filename="icons/icons-28.fnt" filter="ABDFJ" antialias="true" />
+    <font id="sm" filename="bungee/bungee-16.fnt" filter=" -°0123456789ADEFHIMNORSTUW" antialias="true"/>
+    <font id="md" filename="bungee/bungee-48.fnt" filter="0123456789" antialias="true"/>
+    <font id="lg" filename="bungee/bungee-48.fnt" filter="0123456789" antialias="true"/>
+    <font id="xl" filename="bungee/bungee-52.fnt" filter="0123456789" antialias="true"/>
+ </fonts>
