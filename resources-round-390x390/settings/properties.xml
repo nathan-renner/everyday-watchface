@@ -1,0 +1,15 @@
+<properties>
+    <property id="ThemeColor" type="number">3</property>
+    <property id="NumOfFields" type="number">6</property>
+    <property id="TemperatureUnit" type="number">0</property>
+    <property id="ShowDate" type="boolean">true</property>
+    <property id="UseMilitaryFormat" type="boolean">false</property>
+
+    <!-- HR, Weather, Notifications, Steps, Body Battery, Battery -->
+    <property id="DataField1" type="number">6</property>
+    <property id="DataField2" type="number">11</property>
+    <property id="DataField3" type="number">7</property>
+    <property id="DataField4" type="number">8</property>
+    <property id="DataField5" type="number">3</property>
+    <property id="DataField6" type="number">1</property>
+</properties>

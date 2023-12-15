@@ -61,7 +61,7 @@ class EverydayView extends WatchUi.WatchFace {
         6 => 1,
     };
 
-    private var fontlg, fontsm, screenHeight, screenWidth, fieldRadius, fieldPenWidth, iconsSm, iconsLg;
+    private var fontlg, fontmd, fontsm, screenHeight, screenWidth, fieldRadius, fieldPenWidth, iconsSm, iconsLg;
 
     function initialize() {
         WatchFace.initialize();
@@ -139,6 +139,10 @@ class EverydayView extends WatchUi.WatchFace {
         fontsm = WatchUi.loadResource(fonts.sm) as BitmapResource;
         iconsSm = WatchUi.loadResource(fonts.iconsSm) as BitmapResource;
         iconsLg = WatchUi.loadResource(fonts.iconsLg) as BitmapResource;
+
+        if (canBurnIn && fonts has :md) {
+            fontmd = WatchUi.loadResource(fonts.md) as BitmapResource;
+        }
     }
 
     private function drawClock (dc as Dc) {
@@ -172,9 +176,9 @@ class EverydayView extends WatchUi.WatchFace {
         }
 
         dc.setColor(colorMain, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(screenWidth / 2, timeY, fontlg, time[0], Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(screenWidth / 2, timeY, inLowPower && canBurnIn ? fontmd : fontlg, time[0], Graphics.TEXT_JUSTIFY_RIGHT);
         dc.setColor(colorAccent, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(screenWidth / 2, timeY, fontlg, time[1], Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(screenWidth / 2, timeY, inLowPower && canBurnIn ? fontmd : fontlg, time[1], Graphics.TEXT_JUSTIFY_LEFT);
     }
 
     private function getTime() as Array<String>  {
