@@ -299,11 +299,11 @@ class EverydayView extends WatchUi.WatchFace {
                 return [NULL_PLACEHOLDER, "K"];
             }
 
-            var stress = Toybox.SensorHistory.getBodyBatteryHistory({});
+            var stress = Toybox.SensorHistory.getStressHistory({});
             stress = stress.next();
 
             if (stress != null) {
-                return [(1.0 * stress.data / 100).toNumber(), "K"];
+                return [stress.data.format("%02d"), "K"];
             }
 
             return [NULL_PLACEHOLDER, "K"];
@@ -316,6 +316,10 @@ class EverydayView extends WatchUi.WatchFace {
             return [time == null ? 0 : time, "I"];
         } 
         else if (fieldNum == 11) {
+            if (!(Weather has :getCurrentConditions)) {
+                return [NULL_PLACEHOLDER, "P"];
+            }
+
             var conditions = Weather.getCurrentConditions();
             var temp = conditions.temperature;
             var c = conditions.condition;
@@ -344,8 +348,7 @@ class EverydayView extends WatchUi.WatchFace {
                 // raining
                 icon = "N";
             }
-
-            return [Lang.format("$1$°",[temp.format("%d")]), icon];
+            return [temp.format("%d") + "°", icon];
         }
         else {
             return [NULL_PLACEHOLDER];
