@@ -23,25 +23,6 @@ var themes as Dictionary<Number, Array<Number>> = {
     8 => [0xC72EFD, 0x280933, "Purple"],
 };
 
-var layouts as Dictionary<Number, Array<Number>> = {
-    2 => [2],
-    3 => [3],
-    4 => [2, 2],
-    5 => [3, 2],
-    6 => [3, 3],
-};
-
-var stepIconKeys = [
-    :StepsIconPink,
-    :StepsIconOrange,
-    :StepsIconYellow,
-    :StepsIconGreen,
-    :StepsIconLightBlue,
-    :StepsIconPurple,
-];
-
-var solidFields = [2, 4, 6, 7, 9, 10, 11];
-
 var NULL_PLACEHOLDER as String = "--";
 
 class EverydayView extends WatchUi.WatchFace {
@@ -202,7 +183,18 @@ class EverydayView extends WatchUi.WatchFace {
     }
 
     private function drawFields(dc as Dc) {
-        var layout = layouts[numOfFields];
+        var layout = [2];
+
+        if (numOfFields == 3) {
+            layout = [3];
+        } else if (numOfFields == 4) {
+            layout = [2, 2];
+        } else if (numOfFields == 5) {
+            layout = [3, 2];
+        } else {
+            layout = [3, 3];
+        }
+
         var gap = (screenWidth * 0.04).toNumber();
         var topRowY = (screenHeight * 0.53).toNumber();
 
@@ -356,19 +348,11 @@ class EverydayView extends WatchUi.WatchFace {
     }
 
     private function drawField (dc as Dc, x as Number, y as Number, fieldNum as Number) {
-        var field = fields[fieldNum];
-        var data = getFieldData(field);
+        var f = fields[fieldNum];
+        var data = getFieldData(f);
         var buffer = (screenHeight * 0.025).toNumber();
-        
-        if (solidFields.indexOf(field) >= 0) {
-            dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
-            dc.fillCircle(x, y, fieldRadius);
 
-            dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
-            dc.drawText(x, y - fieldRadius / 2 - buffer, iconsSm, data[1], Graphics.TEXT_JUSTIFY_CENTER);
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(x, y - fieldRadius / 2 + buffer, fontsm, data[0], Graphics.TEXT_JUSTIFY_CENTER);
-        } else {
+        if (f == 0 || f == 1 || f == 3 || f == 5 || f == 8) {
             dc.setPenWidth(fieldPenWidth);
             dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
             dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 0, 0);
@@ -379,6 +363,14 @@ class EverydayView extends WatchUi.WatchFace {
             if (data[0] != 0 && data[0] != NULL_PLACEHOLDER) {
                 dc.drawArc(x, y, fieldRadius - fieldPenWidth / 2, Graphics.ARC_CLOCKWISE, 90, 360 * (1 - data[0]) + 90);
             }
+        } else {
+            dc.setColor(colors[1], Graphics.COLOR_TRANSPARENT);
+            dc.fillCircle(x, y, fieldRadius);
+
+            dc.setColor(colors[0], Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, y - fieldRadius / 2 - buffer, iconsSm, data[1], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, y - fieldRadius / 2 + buffer, fontsm, data[0], Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
 
