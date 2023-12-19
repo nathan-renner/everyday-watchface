@@ -23,7 +23,7 @@ var themes as Dictionary<Number, Array<Number>> = {
     8 => [0xC72EFD, 0x280933, "Purple"],
 };
 
-var NULL_PLACEHOLDER as String = "--";
+const NULL_PLACEHOLDER as String = "--";
 
 class EverydayView extends WatchUi.WatchFace {
     var inLowPower = false;
@@ -182,51 +182,7 @@ class EverydayView extends WatchUi.WatchFace {
         return Lang.format("$1$ $2$", [today.day_of_week.substring(0, 3).toUpper(), today.day]);
     }
 
-    private function drawFields(dc as Dc) {
-        var layout = [2];
-
-        if (numOfFields == 3) {
-            layout = [3];
-        } else if (numOfFields == 4) {
-            layout = [2, 2];
-        } else if (numOfFields == 5) {
-            layout = [3, 2];
-        } else {
-            layout = [3, 3];
-        }
-
-        var gap = (screenWidth * 0.04).toNumber();
-        var topRowY = (screenHeight * 0.53).toNumber();
-
-        if (isSquare ? numOfFields > 3 : numOfFields == 6) {
-            topRowY -= (screenHeight * 0.05).toNumber();
-        } else if (numOfFields <= 3) {
-            topRowY += (screenHeight * 0.077).toNumber();
-        }
-        var bottomRowY = topRowY + fieldRadius * 2 + gap;
-        var middle = screenWidth / 2;
-
-        for (var i = 0; i < layout.size(); i++) {
-            var rowY = i == 0 ? topRowY : bottomRowY;
-            var rowX = middle;
-            if (layout[i] == 3) {
-                rowX = middle - fieldRadius * 2 - gap;
-            } else if (layout[i] == 2) {
-                rowX = middle - fieldRadius - gap / 2;
-            }
-            for (var j = 1; j <= layout[i]; j++) {
-                var fieldX = rowX;
-                if (j == 2) {
-                    fieldX = rowX + (fieldRadius + gap / 2) * j;
-                } else if (j == 3) {
-                    fieldX = rowX + (fieldRadius * 2 + gap) * 2;
-                }
-                drawField(dc, fieldX, rowY, (i * layout[0]) + j);
-            }
-        }
-    }
-
-    private function getFieldData (fieldNum as Number) {
+   private function getFieldData (fieldNum as Number) {
         if (fieldNum == 0) {
             var AMInfo = AM.getInfo();
             var total = AMInfo.activeMinutesWeek.total;
@@ -308,17 +264,22 @@ class EverydayView extends WatchUi.WatchFace {
             return [time == null ? 0 : time, "I"];
         } 
         else if (fieldNum == 11) {
-            if (!(Weather has :getCurrentConditions)) {
+            var conditions = Weather.getCurrentConditions();
+
+            if (conditions == null) {
                 return [NULL_PLACEHOLDER, "P"];
             }
 
-            var conditions = Weather.getCurrentConditions();
             var temp = conditions.temperature;
             var c = conditions.condition;
             var icon;
+
+            if (temp == null) {
+                return [NULL_PLACEHOLDER, "P"];
+            }
                 
             if (tempUnit == 0) {
-                temp = 1.0 * temp * 9 / 5 + 32;
+                temp = (1.0 * temp * 9 / 5 + 32).toNumber();
             }
 
             if (c == 0 || c == 23) {
@@ -349,7 +310,7 @@ class EverydayView extends WatchUi.WatchFace {
 
     private function drawField (dc as Dc, x as Number, y as Number, fieldNum as Number) {
         var f = fields[fieldNum];
-        var data = getFieldData(f);
+        var data = getFieldData(f) as Array;
         var buffer = (screenHeight * 0.025).toNumber();
 
         if (f == 0 || f == 1 || f == 3 || f == 5 || f == 8) {
@@ -371,6 +332,52 @@ class EverydayView extends WatchUi.WatchFace {
             dc.drawText(x, y - fieldRadius / 2 - buffer, iconsSm, data[1], Graphics.TEXT_JUSTIFY_CENTER);
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             dc.drawText(x, y - fieldRadius / 2 + buffer, fontsm, data[0], Graphics.TEXT_JUSTIFY_CENTER);
+        }
+    }
+
+    private function drawFields(dc as Dc) {
+        var layout = [];
+
+        if (numOfFields == 2) {
+            layout = [2, 0];
+        } else if (numOfFields == 3) {
+            layout = [3, 0];
+        } else if (numOfFields == 4) {
+            layout = [2, 2];
+        } else if (numOfFields == 5) {
+            layout = [3, 2];
+        } else {
+            layout = [3, 3];
+        }
+
+        var gap = (screenWidth * 0.04).toNumber();
+        var topRowY = (screenHeight * 0.53).toNumber();
+
+        if (isSquare && numOfFields > 3 || !isSquare && numOfFields == 6) {
+            topRowY -= (screenHeight * 0.05).toNumber();
+        } else if (numOfFields <= 3) {
+            topRowY += (screenHeight * 0.077).toNumber();
+        }
+        var bottomRowY = topRowY + fieldRadius * 2 + gap;
+        var middle = screenWidth / 2;
+
+        for (var i = 0; i < layout.size(); i++) {
+            var rowY = i == 0 ? topRowY : bottomRowY;
+            var rowX = middle;
+            if (layout[i] == 3) {
+                rowX = middle - fieldRadius * 2 - gap;
+            } else if (layout[i] == 2) {
+                rowX = middle - fieldRadius - gap / 2;
+            }
+            for (var j = 1; j <= layout[i]; j++) {
+                var fieldX = rowX;
+                if (j == 2) {
+                    fieldX = rowX + (fieldRadius + gap / 2) * j;
+                } else if (j == 3) {
+                    fieldX = rowX + (fieldRadius * 2 + gap) * 2;
+                }
+                drawField(dc, fieldX, rowY, (i * layout[0]) + j);
+            }
         }
     }
 
