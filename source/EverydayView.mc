@@ -21,6 +21,7 @@ var themes as Dictionary<Number, Array<Number>> = {
     6 => [0x2EF0FD, 0x093033, "LightBlue"],
     7 => [0x316BFF, 0x0A1533, "Blue"],
     8 => [0xC72EFD, 0x280933, "Purple"],
+    9 => [Graphics.COLOR_LT_GRAY, Graphics.COLOR_DK_GRAY, "Light Gray"]
 };
 
 const NULL_PLACEHOLDER as String = "--";
