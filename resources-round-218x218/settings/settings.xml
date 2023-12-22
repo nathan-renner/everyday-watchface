@@ -11,6 +11,7 @@
             <listEntry value="6">@Strings.ColorLightBlue</listEntry>
             <listEntry value="7">@Strings.ColorBlue</listEntry>
             <listEntry value="8">@Strings.ColorPurple</listEntry>
+            <listEntry value="9">@Strings.ColorLightGray</listEntry>
         </settingConfig>
     </setting>
 

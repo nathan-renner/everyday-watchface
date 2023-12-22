@@ -12,15 +12,16 @@ using Toybox.SensorHistory;
 using Toybox.Weather;
 
 var themes as Dictionary<Number, Array<Number>> = {
-    0 => [0xFF6FA6, 0x331621, "Pink"],
-    1 => [0xFF3131, 0x330A0A, "Red"],
-    2 => [0xFD6C2E, 0x331609, "Orange"],
-    3 => [0xDBFF00, 0x2C3300, "Yellow"],
-    4 => [0x5EF1C5, 0x133027, "Mint"],
-    5 => [0x42FF00, 0x0D3300, "Green"],
-    6 => [0x2EF0FD, 0x093033, "LightBlue"],
-    7 => [0x316BFF, 0x0A1533, "Blue"],
-    8 => [0xC72EFD, 0x280933, "Purple"],
+    0 => [0xFF6FA6, 0x331621],
+    1 => [0xFF3131, 0x330A0A],
+    2 => [0xFD6C2E, 0x331609],
+    3 => [0xDBFF00, 0x2C3300],
+    4 => [0x5EF1C5, 0x133027],
+    5 => [0x42FF00, 0x0D3300],
+    6 => [0x2EF0FD, 0x093033],
+    7 => [0x316BFF, 0x0A1533],
+    8 => [0xC72EFD, 0x280933],
+    9 => [Graphics.COLOR_LT_GRAY, Graphics.COLOR_DK_GRAY]
 };
 
 const NULL_PLACEHOLDER as String = "--";
